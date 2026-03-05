@@ -1,7 +1,7 @@
 package incident
 
 type CreateDto struct {
-	StatusPageID string `json:"status_page_id" validate:"required,uuid"`
+	StatusPageID string `json:"status_page_id" validate:"required"`
 	Title        string `json:"title" validate:"required"`
 	Content      string `json:"content"`
 	Style        string `json:"style" validate:"required,oneof=info warning danger"`

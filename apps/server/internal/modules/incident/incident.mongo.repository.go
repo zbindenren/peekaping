@@ -15,7 +15,7 @@ var _ Repository = (*MongoRepositoryImpl)(nil)
 
 type mongoModel struct {
 	ID           primitive.ObjectID `bson:"_id"`
-	StatusPageID string             `bson:"status_page_id"`
+	StatusPageID primitive.ObjectID `bson:"status_page_id"`
 	Title        string             `bson:"title"`
 	Content      string             `bson:"content"`
 	Style        string             `bson:"style"`
@@ -37,7 +37,7 @@ type mongoUpdateModel struct {
 func toDomainModel(mm *mongoModel) *Model {
 	return &Model{
 		ID:           mm.ID.Hex(),
-		StatusPageID: mm.StatusPageID,
+		StatusPageID: mm.StatusPageID.Hex(),
 		Title:        mm.Title,
 		Content:      mm.Content,
 		Style:        mm.Style,
@@ -81,7 +81,7 @@ func (r *MongoRepositoryImpl) Create(ctx context.Context, entity *CreateDto) (*M
 
 	mm := &mongoModel{
 		ID:           primitive.NewObjectID(),
-		StatusPageID: entity.StatusPageID,
+		StatusPageID: mustObjectID(entity.StatusPageID),
 		Title:        entity.Title,
 		Content:      entity.Content,
 		Style:        entity.Style,
@@ -157,7 +157,8 @@ func (r *MongoRepositoryImpl) FindByStatusPageID(ctx context.Context, statusPage
 		Sort:  bson.D{{Key: "created_at", Value: -1}},
 	}
 
-	cursor, err := r.collection.Find(ctx, bson.M{"status_page_id": statusPageID}, opts)
+	statusPageObjectID := mustObjectID(statusPageID)
+	cursor, err := r.collection.Find(ctx, bson.M{"status_page_id": statusPageObjectID}, opts)
 	if err != nil {
 		return nil, err
 	}
@@ -179,7 +180,8 @@ func (r *MongoRepositoryImpl) FindActiveByStatusPageID(ctx context.Context, stat
 		Sort: bson.D{{Key: "created_at", Value: -1}},
 	}
 
-	cursor, err := r.collection.Find(ctx, bson.M{"status_page_id": statusPageID, "active": true}, opts)
+	statusPageObjectID := mustObjectID(statusPageID)
+	cursor, err := r.collection.Find(ctx, bson.M{"status_page_id": statusPageObjectID, "active": true}, opts)
 	if err != nil {
 		return nil, err
 	}
@@ -310,7 +312,8 @@ func (r *MongoRepositoryImpl) Delete(ctx context.Context, id string) error {
 }
 
 func (r *MongoRepositoryImpl) DeleteByStatusPageID(ctx context.Context, statusPageID string) error {
-	_, err := r.collection.DeleteMany(ctx, bson.M{"status_page_id": statusPageID})
+	statusPageObjectID := mustObjectID(statusPageID)
+	_, err := r.collection.DeleteMany(ctx, bson.M{"status_page_id": statusPageObjectID})
 	return err
 }
 
