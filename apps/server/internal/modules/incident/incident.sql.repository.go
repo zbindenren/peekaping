@@ -2,6 +2,7 @@ package incident
 
 import (
 	"context"
+	"strings"
 	"time"
 
 	"github.com/google/uuid"
@@ -82,7 +83,7 @@ func (r *SQLRepositoryImpl) FindAll(ctx context.Context, page int, limit int, q 
 	query := r.db.NewSelect().Model((*sqlModel)(nil))
 
 	if q != "" {
-		query = query.Where("LOWER(title) LIKE ?", "%"+q+"%")
+		query = query.Where("LOWER(title) LIKE ?", "%"+strings.ToLower(q)+"%")
 	}
 
 	query = query.Order("created_at DESC").

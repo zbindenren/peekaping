@@ -8,6 +8,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
+	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 )
 
@@ -99,10 +100,10 @@ func setupIncidentService() (*ServiceImpl, *MockRepository) {
 }
 
 func TestIncidentService_Create(t *testing.T) {
-	service, mockRepo := setupIncidentService()
-	ctx := context.Background()
-
 	t.Run("successful creation", func(t *testing.T) {
+		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
+
 		dto := &CreateDto{
 			StatusPageID: "sp-123",
 			Title:        "Test Incident",
@@ -125,12 +126,15 @@ func TestIncidentService_Create(t *testing.T) {
 
 		result, err := service.Create(ctx, dto)
 
-		assert.NoError(t, err)
+		require.NoError(t, err)
 		assert.Equal(t, expected, result)
 		mockRepo.AssertExpectations(t)
 	})
 
 	t.Run("repository error", func(t *testing.T) {
+		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
+
 		dto := &CreateDto{
 			StatusPageID: "sp-456",
 			Title:        "Another Incident",
@@ -141,7 +145,7 @@ func TestIncidentService_Create(t *testing.T) {
 
 		result, err := service.Create(ctx, dto)
 
-		assert.Error(t, err)
+		require.Error(t, err)
 		assert.Nil(t, result)
 		assert.Contains(t, err.Error(), "repository error")
 		mockRepo.AssertExpectations(t)
@@ -149,10 +153,10 @@ func TestIncidentService_Create(t *testing.T) {
 }
 
 func TestIncidentService_FindByID(t *testing.T) {
-	service, mockRepo := setupIncidentService()
-	ctx := context.Background()
-
 	t.Run("successful find", func(t *testing.T) {
+		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
+
 		expected := &Model{
 			ID:           "test-id",
 			StatusPageID: "sp-123",
@@ -163,27 +167,33 @@ func TestIncidentService_FindByID(t *testing.T) {
 
 		result, err := service.FindByID(ctx, "test-id")
 
-		assert.NoError(t, err)
+		require.NoError(t, err)
 		assert.Equal(t, expected, result)
 		mockRepo.AssertExpectations(t)
 	})
 
 	t.Run("not found returns nil", func(t *testing.T) {
+		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
+
 		mockRepo.On("FindByID", ctx, "nonexistent").Return(nil, nil)
 
 		result, err := service.FindByID(ctx, "nonexistent")
 
-		assert.NoError(t, err)
+		require.NoError(t, err)
 		assert.Nil(t, result)
 		mockRepo.AssertExpectations(t)
 	})
 
 	t.Run("repository error", func(t *testing.T) {
+		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
+
 		mockRepo.On("FindByID", ctx, "error-id").Return(nil, errors.New("repository error"))
 
 		result, err := service.FindByID(ctx, "error-id")
 
-		assert.Error(t, err)
+		require.Error(t, err)
 		assert.Nil(t, result)
 		assert.Contains(t, err.Error(), "repository error")
 		mockRepo.AssertExpectations(t)
@@ -191,10 +201,10 @@ func TestIncidentService_FindByID(t *testing.T) {
 }
 
 func TestIncidentService_FindAll(t *testing.T) {
-	service, mockRepo := setupIncidentService()
-	ctx := context.Background()
-
 	t.Run("successful find all", func(t *testing.T) {
+		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
+
 		expected := []*Model{
 			{ID: "incident-1", Title: "Incident 1"},
 			{ID: "incident-2", Title: "Incident 2"},
@@ -204,17 +214,20 @@ func TestIncidentService_FindAll(t *testing.T) {
 
 		result, err := service.FindAll(ctx, 0, 10, "test")
 
-		assert.NoError(t, err)
+		require.NoError(t, err)
 		assert.Equal(t, expected, result)
 		mockRepo.AssertExpectations(t)
 	})
 
 	t.Run("repository error", func(t *testing.T) {
+		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
+
 		mockRepo.On("FindAll", ctx, 1, 10, "").Return(nil, errors.New("repository error"))
 
 		result, err := service.FindAll(ctx, 1, 10, "")
 
-		assert.Error(t, err)
+		require.Error(t, err)
 		assert.Nil(t, result)
 		assert.Contains(t, err.Error(), "repository error")
 		mockRepo.AssertExpectations(t)
@@ -222,10 +235,10 @@ func TestIncidentService_FindAll(t *testing.T) {
 }
 
 func TestIncidentService_FindByStatusPageID(t *testing.T) {
-	service, mockRepo := setupIncidentService()
-	ctx := context.Background()
-
 	t.Run("successful find by status page ID", func(t *testing.T) {
+		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
+
 		expected := []*Model{
 			{ID: "incident-1", StatusPageID: "sp-123"},
 			{ID: "incident-2", StatusPageID: "sp-123"},
@@ -235,17 +248,20 @@ func TestIncidentService_FindByStatusPageID(t *testing.T) {
 
 		result, err := service.FindByStatusPageID(ctx, "sp-123", 0, 10)
 
-		assert.NoError(t, err)
+		require.NoError(t, err)
 		assert.Equal(t, expected, result)
 		mockRepo.AssertExpectations(t)
 	})
 
 	t.Run("repository error", func(t *testing.T) {
+		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
+
 		mockRepo.On("FindByStatusPageID", ctx, "sp-456", 0, 10).Return(nil, errors.New("repository error"))
 
 		result, err := service.FindByStatusPageID(ctx, "sp-456", 0, 10)
 
-		assert.Error(t, err)
+		require.Error(t, err)
 		assert.Nil(t, result)
 		assert.Contains(t, err.Error(), "repository error")
 		mockRepo.AssertExpectations(t)
@@ -253,10 +269,10 @@ func TestIncidentService_FindByStatusPageID(t *testing.T) {
 }
 
 func TestIncidentService_FindActiveByStatusPageID(t *testing.T) {
-	service, mockRepo := setupIncidentService()
-	ctx := context.Background()
-
 	t.Run("successful find active", func(t *testing.T) {
+		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
+
 		expected := []*Model{
 			{ID: "incident-1", StatusPageID: "sp-123", Active: true},
 		}
@@ -265,17 +281,20 @@ func TestIncidentService_FindActiveByStatusPageID(t *testing.T) {
 
 		result, err := service.FindActiveByStatusPageID(ctx, "sp-123")
 
-		assert.NoError(t, err)
+		require.NoError(t, err)
 		assert.Equal(t, expected, result)
 		mockRepo.AssertExpectations(t)
 	})
 
 	t.Run("repository error", func(t *testing.T) {
+		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
+
 		mockRepo.On("FindActiveByStatusPageID", ctx, "sp-456").Return(nil, errors.New("repository error"))
 
 		result, err := service.FindActiveByStatusPageID(ctx, "sp-456")
 
-		assert.Error(t, err)
+		require.Error(t, err)
 		assert.Nil(t, result)
 		assert.Contains(t, err.Error(), "repository error")
 		mockRepo.AssertExpectations(t)
@@ -283,10 +302,10 @@ func TestIncidentService_FindActiveByStatusPageID(t *testing.T) {
 }
 
 func TestIncidentService_FindByStatusPageSlug(t *testing.T) {
-	service, mockRepo := setupIncidentService()
-	ctx := context.Background()
-
 	t.Run("successful find by slug", func(t *testing.T) {
+		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
+
 		expected := []*Model{
 			{ID: "incident-1", StatusPageID: "sp-123"},
 		}
@@ -295,17 +314,20 @@ func TestIncidentService_FindByStatusPageSlug(t *testing.T) {
 
 		result, err := service.FindByStatusPageSlug(ctx, "my-page", 0, 10)
 
-		assert.NoError(t, err)
+		require.NoError(t, err)
 		assert.Equal(t, expected, result)
 		mockRepo.AssertExpectations(t)
 	})
 
 	t.Run("repository error", func(t *testing.T) {
+		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
+
 		mockRepo.On("FindByStatusPageSlug", ctx, "bad-slug", 0, 10).Return(nil, errors.New("repository error"))
 
 		result, err := service.FindByStatusPageSlug(ctx, "bad-slug", 0, 10)
 
-		assert.Error(t, err)
+		require.Error(t, err)
 		assert.Nil(t, result)
 		assert.Contains(t, err.Error(), "repository error")
 		mockRepo.AssertExpectations(t)
@@ -313,10 +335,9 @@ func TestIncidentService_FindByStatusPageSlug(t *testing.T) {
 }
 
 func TestIncidentService_Update(t *testing.T) {
-	ctx := context.Background()
-
 	t.Run("successful update", func(t *testing.T) {
 		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
 		title := "Updated Title"
 		dto := &UpdateDto{Title: &title}
 		expected := &Model{
@@ -328,13 +349,14 @@ func TestIncidentService_Update(t *testing.T) {
 
 		result, err := service.Update(ctx, "test-id", dto)
 
-		assert.NoError(t, err)
+		require.NoError(t, err)
 		assert.Equal(t, expected, result)
 		mockRepo.AssertExpectations(t)
 	})
 
 	t.Run("repository error", func(t *testing.T) {
 		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
 		title := "Updated"
 		dto := &UpdateDto{Title: &title}
 
@@ -342,7 +364,7 @@ func TestIncidentService_Update(t *testing.T) {
 
 		result, err := service.Update(ctx, "test-id", dto)
 
-		assert.Error(t, err)
+		require.Error(t, err)
 		assert.Nil(t, result)
 		assert.Contains(t, err.Error(), "update failed")
 		mockRepo.AssertExpectations(t)
@@ -350,6 +372,7 @@ func TestIncidentService_Update(t *testing.T) {
 
 	t.Run("reactivation clears resolved_at", func(t *testing.T) {
 		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
 		active := true
 		dto := &UpdateDto{Active: &active}
 		expected := &Model{
@@ -362,7 +385,7 @@ func TestIncidentService_Update(t *testing.T) {
 
 		result, err := service.Update(ctx, "test-id", dto)
 
-		assert.NoError(t, err)
+		require.NoError(t, err)
 		assert.True(t, result.Active)
 		assert.Nil(t, result.ResolvedAt)
 		mockRepo.AssertExpectations(t)
@@ -370,33 +393,76 @@ func TestIncidentService_Update(t *testing.T) {
 }
 
 func TestIncidentService_Resolve(t *testing.T) {
-	service, mockRepo := setupIncidentService()
-	ctx := context.Background()
-
 	t.Run("successful resolve", func(t *testing.T) {
+		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
+
+		active := &Model{
+			ID:     "test-id",
+			Active: true,
+		}
+
 		now := time.Now()
-		expected := &Model{
+		resolved := &Model{
 			ID:         "test-id",
 			Active:     false,
 			ResolvedAt: &now,
 		}
 
-		mockRepo.On("Resolve", ctx, "test-id").Return(expected, nil)
+		mockRepo.On("FindByID", ctx, "test-id").Return(active, nil)
+		mockRepo.On("Resolve", ctx, "test-id").Return(resolved, nil)
 
 		result, err := service.Resolve(ctx, "test-id")
 
-		assert.NoError(t, err)
+		require.NoError(t, err)
 		assert.False(t, result.Active)
 		assert.NotNil(t, result.ResolvedAt)
 		mockRepo.AssertExpectations(t)
 	})
 
+	t.Run("already resolved is no-op", func(t *testing.T) {
+		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
+
+		now := time.Now()
+		alreadyResolved := &Model{
+			ID:         "test-id",
+			Active:     false,
+			ResolvedAt: &now,
+		}
+
+		mockRepo.On("FindByID", ctx, "test-id").Return(alreadyResolved, nil)
+
+		result, err := service.Resolve(ctx, "test-id")
+
+		require.NoError(t, err)
+		assert.False(t, result.Active)
+		assert.Equal(t, &now, result.ResolvedAt)
+		mockRepo.AssertNotCalled(t, "Resolve", ctx, "test-id")
+	})
+
+	t.Run("not found returns nil", func(t *testing.T) {
+		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
+
+		mockRepo.On("FindByID", ctx, "nonexistent").Return(nil, nil)
+
+		result, err := service.Resolve(ctx, "nonexistent")
+
+		require.NoError(t, err)
+		assert.Nil(t, result)
+		mockRepo.AssertNotCalled(t, "Resolve", ctx, "nonexistent")
+	})
+
 	t.Run("repository error", func(t *testing.T) {
-		mockRepo.On("Resolve", ctx, "error-id").Return(nil, errors.New("resolve failed"))
+		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
+
+		mockRepo.On("FindByID", ctx, "error-id").Return(nil, errors.New("resolve failed"))
 
 		result, err := service.Resolve(ctx, "error-id")
 
-		assert.Error(t, err)
+		require.Error(t, err)
 		assert.Nil(t, result)
 		assert.Contains(t, err.Error(), "resolve failed")
 		mockRepo.AssertExpectations(t)
@@ -404,48 +470,54 @@ func TestIncidentService_Resolve(t *testing.T) {
 }
 
 func TestIncidentService_Delete(t *testing.T) {
-	service, mockRepo := setupIncidentService()
-	ctx := context.Background()
-
 	t.Run("successful deletion", func(t *testing.T) {
+		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
+
 		mockRepo.On("Delete", ctx, "test-id").Return(nil)
 
 		err := service.Delete(ctx, "test-id")
 
-		assert.NoError(t, err)
+		require.NoError(t, err)
 		mockRepo.AssertExpectations(t)
 	})
 
 	t.Run("repository error", func(t *testing.T) {
+		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
+
 		mockRepo.On("Delete", ctx, "error-id").Return(errors.New("delete failed"))
 
 		err := service.Delete(ctx, "error-id")
 
-		assert.Error(t, err)
+		require.Error(t, err)
 		assert.Contains(t, err.Error(), "delete failed")
 		mockRepo.AssertExpectations(t)
 	})
 }
 
 func TestIncidentService_DeleteByStatusPageID(t *testing.T) {
-	service, mockRepo := setupIncidentService()
-	ctx := context.Background()
-
 	t.Run("successful deletion", func(t *testing.T) {
+		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
+
 		mockRepo.On("DeleteByStatusPageID", ctx, "sp-123").Return(nil)
 
 		err := service.DeleteByStatusPageID(ctx, "sp-123")
 
-		assert.NoError(t, err)
+		require.NoError(t, err)
 		mockRepo.AssertExpectations(t)
 	})
 
 	t.Run("repository error", func(t *testing.T) {
+		service, mockRepo := setupIncidentService()
+		ctx := t.Context()
+
 		mockRepo.On("DeleteByStatusPageID", ctx, "sp-456").Return(errors.New("delete failed"))
 
 		err := service.DeleteByStatusPageID(ctx, "sp-456")
 
-		assert.Error(t, err)
+		require.Error(t, err)
 		assert.Contains(t, err.Error(), "delete failed")
 		mockRepo.AssertExpectations(t)
 	})
@@ -457,8 +529,8 @@ func TestNewService(t *testing.T) {
 
 	service := NewService(mockRepo, logger)
 
-	assert.NotNil(t, service)
-	assert.IsType(t, &ServiceImpl{}, service)
+	require.NotNil(t, service)
+	require.IsType(t, &ServiceImpl{}, service)
 
 	serviceImpl := service.(*ServiceImpl)
 	assert.Equal(t, mockRepo, serviceImpl.repository)

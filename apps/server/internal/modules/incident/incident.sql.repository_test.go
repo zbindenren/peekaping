@@ -1,7 +1,6 @@
 package incident
 
 import (
-	"context"
 	"database/sql"
 	"testing"
 
@@ -43,7 +42,7 @@ func setupTestDB(t *testing.T) *bun.DB {
 func TestSQLRepositoryImpl_Create(t *testing.T) {
 	db := setupTestDB(t)
 	repo := NewSQLRepository(db)
-	ctx := context.Background()
+	ctx := t.Context()
 
 	t.Run("successful creation", func(t *testing.T) {
 		dto := &CreateDto{
@@ -71,7 +70,7 @@ func TestSQLRepositoryImpl_Create(t *testing.T) {
 func TestSQLRepositoryImpl_FindByID(t *testing.T) {
 	db := setupTestDB(t)
 	repo := NewSQLRepository(db)
-	ctx := context.Background()
+	ctx := t.Context()
 
 	t.Run("successful find", func(t *testing.T) {
 		created, err := repo.Create(ctx, &CreateDto{
@@ -99,7 +98,7 @@ func TestSQLRepositoryImpl_FindByID(t *testing.T) {
 func TestSQLRepositoryImpl_FindAll(t *testing.T) {
 	db := setupTestDB(t)
 	repo := NewSQLRepository(db)
-	ctx := context.Background()
+	ctx := t.Context()
 
 	// seed data
 	_, err := repo.Create(ctx, &CreateDto{StatusPageID: "sp-1", Title: "Alpha Incident", Style: "info"})
@@ -151,7 +150,7 @@ func TestSQLRepositoryImpl_FindAll(t *testing.T) {
 func TestSQLRepositoryImpl_FindByStatusPageID(t *testing.T) {
 	db := setupTestDB(t)
 	repo := NewSQLRepository(db)
-	ctx := context.Background()
+	ctx := t.Context()
 
 	_, err := repo.Create(ctx, &CreateDto{StatusPageID: "sp-1", Title: "Incident A", Style: "info"})
 	require.NoError(t, err)
@@ -188,7 +187,7 @@ func TestSQLRepositoryImpl_FindByStatusPageID(t *testing.T) {
 func TestSQLRepositoryImpl_FindActiveByStatusPageID(t *testing.T) {
 	db := setupTestDB(t)
 	repo := NewSQLRepository(db)
-	ctx := context.Background()
+	ctx := t.Context()
 
 	_, err := repo.Create(ctx, &CreateDto{StatusPageID: "sp-1", Title: "Active Incident", Style: "warning"})
 	require.NoError(t, err)
@@ -219,7 +218,7 @@ func TestSQLRepositoryImpl_FindActiveByStatusPageID(t *testing.T) {
 func TestSQLRepositoryImpl_Update(t *testing.T) {
 	db := setupTestDB(t)
 	repo := NewSQLRepository(db)
-	ctx := context.Background()
+	ctx := t.Context()
 
 	t.Run("update title", func(t *testing.T) {
 		created, err := repo.Create(ctx, &CreateDto{
@@ -293,7 +292,7 @@ func TestSQLRepositoryImpl_Update(t *testing.T) {
 func TestSQLRepositoryImpl_Resolve(t *testing.T) {
 	db := setupTestDB(t)
 	repo := NewSQLRepository(db)
-	ctx := context.Background()
+	ctx := t.Context()
 
 	t.Run("successful resolve", func(t *testing.T) {
 		created, err := repo.Create(ctx, &CreateDto{
@@ -315,7 +314,7 @@ func TestSQLRepositoryImpl_Resolve(t *testing.T) {
 func TestSQLRepositoryImpl_Delete(t *testing.T) {
 	db := setupTestDB(t)
 	repo := NewSQLRepository(db)
-	ctx := context.Background()
+	ctx := t.Context()
 
 	t.Run("successful deletion", func(t *testing.T) {
 		created, err := repo.Create(ctx, &CreateDto{
@@ -343,7 +342,7 @@ func TestSQLRepositoryImpl_Delete(t *testing.T) {
 func TestSQLRepositoryImpl_DeleteByStatusPageID(t *testing.T) {
 	db := setupTestDB(t)
 	repo := NewSQLRepository(db)
-	ctx := context.Background()
+	ctx := t.Context()
 
 	_, err := repo.Create(ctx, &CreateDto{StatusPageID: "sp-del", Title: "Inc 1", Style: "info"})
 	require.NoError(t, err)

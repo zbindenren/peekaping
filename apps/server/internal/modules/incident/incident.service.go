@@ -60,6 +60,17 @@ func (s *ServiceImpl) Update(ctx context.Context, id string, dto *UpdateDto) (*M
 }
 
 func (s *ServiceImpl) Resolve(ctx context.Context, id string) (*Model, error) {
+	incident, err := s.repository.FindByID(ctx, id)
+	if err != nil {
+		return nil, err
+	}
+	if incident == nil {
+		return nil, nil
+	}
+	if !incident.Active {
+		return incident, nil
+	}
+
 	return s.repository.Resolve(ctx, id)
 }
 

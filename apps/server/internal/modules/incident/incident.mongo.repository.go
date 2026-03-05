@@ -2,7 +2,9 @@ package incident
 
 import (
 	"context"
+	"fmt"
 	"peekaping/internal/config"
+	"regexp"
 	"time"
 
 	"go.mongodb.org/mongo-driver/bson"
@@ -26,12 +28,12 @@ type mongoModel struct {
 }
 
 type mongoUpdateModel struct {
-	Title      *string `bson:"title,omitempty"`
-	Content    *string `bson:"content,omitempty"`
-	Style      *string `bson:"style,omitempty"`
-	Active     *bool   `bson:"active,omitempty"`
-	ResolvedAt *string `bson:"resolved_at,omitempty"`
-	UpdatedAt  *string `bson:"updated_at,omitempty"`
+	Title      *string    `bson:"title,omitempty"`
+	Content    *string    `bson:"content,omitempty"`
+	Style      *string    `bson:"style,omitempty"`
+	Active     *bool      `bson:"active,omitempty"`
+	ResolvedAt *time.Time `bson:"resolved_at,omitempty"`
+	UpdatedAt  *time.Time `bson:"updated_at,omitempty"`
 }
 
 func toDomainModel(mm *mongoModel) *Model {
@@ -69,9 +71,14 @@ func NewMongoRepository(client *mongo.Client, cfg *config.Config) Repository {
 }
 
 func (r *MongoRepositoryImpl) Create(ctx context.Context, entity *CreateDto) (*Model, error) {
+	statusPageOID, err := parseObjectID(entity.StatusPageID)
+	if err != nil {
+		return nil, fmt.Errorf("invalid status page ID: %w", err)
+	}
+
 	// check that the status page exists
 	var sp bson.M
-	err := r.db.Collection("status_pages").FindOne(ctx, bson.M{"_id": mustObjectID(entity.StatusPageID)}).Decode(&sp)
+	err = r.db.Collection("status_pages").FindOne(ctx, bson.M{"_id": statusPageOID}).Decode(&sp)
 	if err != nil {
 		if err == mongo.ErrNoDocuments {
 			return nil, mongo.ErrNoDocuments
@@ -81,7 +88,7 @@ func (r *MongoRepositoryImpl) Create(ctx context.Context, entity *CreateDto) (*M
 
 	mm := &mongoModel{
 		ID:           primitive.NewObjectID(),
-		StatusPageID: mustObjectID(entity.StatusPageID),
+		StatusPageID: statusPageOID,
 		Title:        entity.Title,
 		Content:      entity.Content,
 		Style:        entity.Style,
@@ -127,7 +134,7 @@ func (r *MongoRepositoryImpl) FindAll(ctx context.Context, page int, limit int, 
 
 	filter := bson.M{}
 	if q != "" {
-		filter["title"] = bson.M{"$regex": q, "$options": "i"}
+		filter["title"] = bson.M{"$regex": regexp.QuoteMeta(q), "$options": "i"}
 	}
 
 	cursor, err := r.collection.Find(ctx, filter, opts)
@@ -157,7 +164,11 @@ func (r *MongoRepositoryImpl) FindByStatusPageID(ctx context.Context, statusPage
 		Sort:  bson.D{{Key: "created_at", Value: -1}},
 	}
 
-	statusPageObjectID := mustObjectID(statusPageID)
+	statusPageObjectID, err := parseObjectID(statusPageID)
+	if err != nil {
+		return nil, fmt.Errorf("invalid status page ID: %w", err)
+	}
+
 	cursor, err := r.collection.Find(ctx, bson.M{"status_page_id": statusPageObjectID}, opts)
 	if err != nil {
 		return nil, err
@@ -180,7 +191,10 @@ func (r *MongoRepositoryImpl) FindActiveByStatusPageID(ctx context.Context, stat
 		Sort: bson.D{{Key: "created_at", Value: -1}},
 	}
 
-	statusPageObjectID := mustObjectID(statusPageID)
+	statusPageObjectID, err := parseObjectID(statusPageID)
+	if err != nil {
+		return nil, fmt.Errorf("invalid status page ID: %w", err)
+	}
 	cursor, err := r.collection.Find(ctx, bson.M{"status_page_id": statusPageObjectID, "active": true}, opts)
 	if err != nil {
 		return nil, err
@@ -240,14 +254,13 @@ func (r *MongoRepositoryImpl) Update(ctx context.Context, id string, entity *Upd
 	}
 
 	now := time.Now().UTC()
-	nowStr := now.Format(time.RFC3339)
 
 	update := &mongoUpdateModel{
 		Title:     entity.Title,
 		Content:   entity.Content,
 		Style:     entity.Style,
 		Active:    entity.Active,
-		UpdatedAt: &nowStr,
+		UpdatedAt: &now,
 	}
 
 	if entity.Active != nil {
@@ -265,8 +278,7 @@ func (r *MongoRepositoryImpl) Update(ctx context.Context, id string, entity *Upd
 			return r.FindByID(ctx, id)
 		}
 		// deactivating: set resolved_at
-		resolvedStr := nowStr
-		update.ResolvedAt = &resolvedStr
+		update.ResolvedAt = &now
 	}
 
 	filter := bson.M{"_id": objectID}
@@ -286,7 +298,7 @@ func (r *MongoRepositoryImpl) Resolve(ctx context.Context, id string) (*Model, e
 		return nil, err
 	}
 
-	now := time.Now().UTC().Format(time.RFC3339)
+	now := time.Now().UTC()
 	update := bson.M{"$set": bson.M{
 		"active":      false,
 		"resolved_at": now,
@@ -312,13 +324,15 @@ func (r *MongoRepositoryImpl) Delete(ctx context.Context, id string) error {
 }
 
 func (r *MongoRepositoryImpl) DeleteByStatusPageID(ctx context.Context, statusPageID string) error {
-	statusPageObjectID := mustObjectID(statusPageID)
-	_, err := r.collection.DeleteMany(ctx, bson.M{"status_page_id": statusPageObjectID})
+	statusPageObjectID, err := parseObjectID(statusPageID)
+	if err != nil {
+		return fmt.Errorf("invalid status page ID: %w", err)
+	}
+
+	_, err = r.collection.DeleteMany(ctx, bson.M{"status_page_id": statusPageObjectID})
 	return err
 }
 
-// mustObjectID converts a hex string to an ObjectID, returning a zero ObjectID on error.
-func mustObjectID(hex string) primitive.ObjectID {
-	oid, _ := primitive.ObjectIDFromHex(hex)
-	return oid
+func parseObjectID(hex string) (primitive.ObjectID, error) {
+	return primitive.ObjectIDFromHex(hex)
 }

@@ -129,6 +129,7 @@ func (c *Controller) FindByID(ctx *gin.Context) {
 // @Param		body body UpdateDto true "Incident update object"
 // @Success		200	{object}	utils.ApiResponse[Model]
 // @Failure		400	{object}	utils.APIError[any]
+// @Failure		404	{object}	utils.APIError[any]
 // @Failure		500	{object}	utils.APIError[any]
 func (c *Controller) Update(ctx *gin.Context) {
 	id := ctx.Param("id")
@@ -139,10 +140,20 @@ func (c *Controller) Update(ctx *gin.Context) {
 		return
 	}
 
+	if err := utils.Validate.Struct(entity); err != nil {
+		ctx.JSON(http.StatusBadRequest, utils.NewFailResponse(err.Error()))
+		return
+	}
+
 	updated, err := c.service.Update(ctx, id, &entity)
 	if err != nil {
 		c.logger.Errorw("Failed to update incident", "error", err)
 		ctx.JSON(http.StatusInternalServerError, utils.NewFailResponse("Internal server error"))
+		return
+	}
+
+	if updated == nil {
+		ctx.JSON(http.StatusNotFound, utils.NewFailResponse("Incident not found"))
 		return
 	}
 
@@ -157,6 +168,7 @@ func (c *Controller) Update(ctx *gin.Context) {
 // @Security	ApiKeyAuth
 // @Param		id path string true "Incident ID"
 // @Success		200	{object}	utils.ApiResponse[Model]
+// @Failure		404	{object}	utils.APIError[any]
 // @Failure		500	{object}	utils.APIError[any]
 func (c *Controller) Resolve(ctx *gin.Context) {
 	id := ctx.Param("id")
@@ -165,6 +177,11 @@ func (c *Controller) Resolve(ctx *gin.Context) {
 	if err != nil {
 		c.logger.Errorw("Failed to resolve incident", "error", err)
 		ctx.JSON(http.StatusInternalServerError, utils.NewFailResponse("Internal server error"))
+		return
+	}
+
+	if resolved == nil {
+		ctx.JSON(http.StatusNotFound, utils.NewFailResponse("Incident not found"))
 		return
 	}
 
@@ -179,11 +196,24 @@ func (c *Controller) Resolve(ctx *gin.Context) {
 // @Security	ApiKeyAuth
 // @Param		id path string true "Incident ID"
 // @Success		200	{object}	utils.ApiResponse[any]
+// @Failure		404	{object}	utils.APIError[any]
 // @Failure		500	{object}	utils.APIError[any]
 func (c *Controller) Delete(ctx *gin.Context) {
 	id := ctx.Param("id")
 
-	err := c.service.Delete(ctx, id)
+	existing, err := c.service.FindByID(ctx, id)
+	if err != nil {
+		c.logger.Errorw("Failed to fetch incident", "error", err)
+		ctx.JSON(http.StatusInternalServerError, utils.NewFailResponse("Internal server error"))
+		return
+	}
+
+	if existing == nil {
+		ctx.JSON(http.StatusNotFound, utils.NewFailResponse("Incident not found"))
+		return
+	}
+
+	err = c.service.Delete(ctx, id)
 	if err != nil {
 		c.logger.Errorw("Failed to delete incident", "error", err)
 		ctx.JSON(http.StatusInternalServerError, utils.NewFailResponse("Internal server error"))
