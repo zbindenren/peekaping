@@ -115,6 +115,39 @@
       "passwords_mismatch": "รหัสผ่านไม่ตรงกัน"
     }
   },
+  "incidents": {
+    "active": "ใช้งานอยู่",
+    "confirm_delete": "การดำเนินการนี้จะลบเหตุการณ์นี้อย่างถาวร",
+    "confirm_resolve": "การดำเนินการนี้จะทำเครื่องหมายเหตุการณ์ว่าแก้ไขแล้ว",
+    "create": "สร้างเหตุการณ์",
+    "created_success": "สร้างเหตุการณ์สำเร็จ",
+    "delete": "ลบเหตุการณ์",
+    "deleted_success": "ลบเหตุการณ์สำเร็จ",
+    "edit": "แก้ไขเหตุการณ์",
+    "form": {
+      "content_label": "เนื้อหา",
+      "content_placeholder": "อธิบายเหตุการณ์...",
+      "markdown_supported": "รองรับ Markdown",
+      "select_status_page": "เลือกหน้าสถานะ...",
+      "status_page_label": "หน้าสถานะ",
+      "status_page_required": "ต้องระบุหน้าสถานะ",
+      "style_label": "รูปแบบ",
+      "title_label": "ชื่อเรื่อง",
+      "title_placeholder": "ชื่อเหตุการณ์",
+      "title_required": "ต้องระบุชื่อเรื่อง"
+    },
+    "no_incidents": "ไม่มีเหตุการณ์",
+    "resolve": "แก้ไข",
+    "resolved": "แก้ไขแล้ว",
+    "resolved_success": "แก้ไขเหตุการณ์สำเร็จ",
+    "style": {
+      "danger": "อันตราย",
+      "info": "ข้อมูล",
+      "warning": "คำเตือน"
+    },
+    "title": "เหตุการณ์",
+    "updated_success": "อัปเดตเหตุการณ์สำเร็จ"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "เหตุการณ์",
     "maintenance": "บำรุงรักษา",
     "monitors": "มอนิเตอร์",
     "notification_channels": "ช่องทางการแจ้งเตือน",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "เหตุการณ์ที่ใช้งานอยู่",
+      "history_title": "ประวัติเหตุการณ์",
+      "no_active": "ไม่มีเหตุการณ์ที่ใช้งานอยู่",
+      "no_history": "ไม่มีประวัติเหตุการณ์",
+      "resolved": "แก้ไขแล้ว"
+    },
     "messages": {
       "all_systems_operational": "ระบบทั้งหมดทำงานได้",
       "down": "หยุดทำงาน",

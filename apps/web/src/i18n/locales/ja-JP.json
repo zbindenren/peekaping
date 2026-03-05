@@ -115,6 +115,39 @@
       "passwords_mismatch": "パスワードが一致しません"
     }
   },
+  "incidents": {
+    "active": "アクティブ",
+    "confirm_delete": "このインシデントは完全に削除されます。",
+    "confirm_resolve": "このインシデントを解決済みとしてマークします。",
+    "create": "インシデントを作成",
+    "created_success": "インシデントが正常に作成されました",
+    "delete": "インシデントを削除",
+    "deleted_success": "インシデントが正常に削除されました",
+    "edit": "インシデントを編集",
+    "form": {
+      "content_label": "内容",
+      "content_placeholder": "インシデントを説明してください...",
+      "markdown_supported": "Markdownがサポートされています",
+      "select_status_page": "ステータスページを選択...",
+      "status_page_label": "ステータスページ",
+      "status_page_required": "ステータスページは必須です",
+      "style_label": "スタイル",
+      "title_label": "タイトル",
+      "title_placeholder": "インシデントのタイトル",
+      "title_required": "タイトルは必須です"
+    },
+    "no_incidents": "インシデントはありません",
+    "resolve": "解決",
+    "resolved": "解決済み",
+    "resolved_success": "インシデントが正常に解決されました",
+    "style": {
+      "danger": "危険",
+      "info": "情報",
+      "warning": "警告"
+    },
+    "title": "インシデント",
+    "updated_success": "インシデントが正常に更新されました"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "インシデント",
     "maintenance": "メンテナンス",
     "monitors": "モニター",
     "notification_channels": "通知チャネル",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "アクティブなインシデント",
+      "history_title": "インシデント履歴",
+      "no_active": "アクティブなインシデントはありません",
+      "no_history": "インシデント履歴はありません",
+      "resolved": "解決済み"
+    },
     "messages": {
       "all_systems_operational": "すべてのシステムは稼働しています",
       "down": "停止中",

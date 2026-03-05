@@ -115,6 +115,39 @@
       "passwords_mismatch": "Паролі не супадаюць"
     }
   },
+  "incidents": {
+    "active": "Актыўны",
+    "confirm_delete": "Гэта назаўжды выдаліць гэты інцыдэнт.",
+    "confirm_resolve": "Гэта пазначыць інцыдэнт як вырашаны.",
+    "create": "Стварыць інцыдэнт",
+    "created_success": "Інцыдэнт паспяхова створаны",
+    "delete": "Выдаліць інцыдэнт",
+    "deleted_success": "Інцыдэнт паспяхова выдалены",
+    "edit": "Рэдагаваць інцыдэнт",
+    "form": {
+      "content_label": "Змест",
+      "content_placeholder": "Апішыце інцыдэнт...",
+      "markdown_supported": "Markdown падтрымліваецца",
+      "select_status_page": "Выберыце старонку стану...",
+      "status_page_label": "Старонка стану",
+      "status_page_required": "Старонка стану абавязковая",
+      "style_label": "Стыль",
+      "title_label": "Загаловак",
+      "title_placeholder": "Загаловак інцыдэнту",
+      "title_required": "Загаловак абавязковы"
+    },
+    "no_incidents": "Няма інцыдэнтаў",
+    "resolve": "Вырашыць",
+    "resolved": "Вырашаны",
+    "resolved_success": "Інцыдэнт паспяхова вырашаны",
+    "style": {
+      "danger": "Небяспека",
+      "info": "Інфармацыя",
+      "warning": "Папярэджанне"
+    },
+    "title": "Інцыдэнты",
+    "updated_success": "Інцыдэнт паспяхова абноўлены"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Інцыдэнты",
     "maintenance": "Абслугоўванне",
     "monitors": "Маніторы",
     "notification_channels": "Каналы апавяшчэнняў",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Актыўныя інцыдэнты",
+      "history_title": "Гісторыя інцыдэнтаў",
+      "no_active": "Няма актыўных інцыдэнтаў",
+      "no_history": "Няма гісторыі інцыдэнтаў",
+      "resolved": "Вырашаны"
+    },
     "messages": {
       "all_systems_operational": "Усе сістэмы працуюць",
       "down": "Не працуе",

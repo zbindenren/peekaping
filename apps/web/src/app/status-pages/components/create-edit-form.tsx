@@ -24,6 +24,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
   getStatusPagesInfiniteQueryKey,
   getStatusPagesByIdQueryKey,
+  getStatusPagesQueryKey,
   postStatusPagesMutation,
   patchStatusPagesByIdMutation,
 } from "@/api/@tanstack/react-query.gen";
@@ -121,6 +122,9 @@ const CreateEditForm = ({
       queryClient.invalidateQueries({
         queryKey: getStatusPagesInfiniteQueryKey(),
       });
+      queryClient.invalidateQueries({
+        queryKey: getStatusPagesQueryKey(),
+      });
       navigate("/status-pages");
     },
     onError: handleMutationError,
@@ -134,6 +138,9 @@ const CreateEditForm = ({
       toast.success(t("status_pages.messages.updated_successfully"));
       queryClient.invalidateQueries({
         queryKey: getStatusPagesInfiniteQueryKey(),
+      });
+      queryClient.invalidateQueries({
+        queryKey: getStatusPagesQueryKey(),
       });
       queryClient.removeQueries({
         queryKey: getStatusPagesByIdQueryKey({ path: { id: id! } }),

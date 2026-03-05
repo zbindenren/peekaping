@@ -8,6 +8,7 @@ import {
   Vibrate,
   ListCheckIcon,
   Tag,
+  AlertTriangle,
 } from "lucide-react";
 
 import {
@@ -51,6 +52,11 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
         title: t("navigation.status_pages"),
         url: "/status-pages",
         icon: ListCheckIcon,
+      },
+      {
+        title: t("navigation.incidents"),
+        url: "/incidents",
+        icon: AlertTriangle,
       },
       {
         title: "Tags",

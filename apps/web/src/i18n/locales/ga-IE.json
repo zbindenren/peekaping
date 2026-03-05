@@ -115,6 +115,39 @@
       "passwords_mismatch": "Ní ionann na pasfhocail"
     }
   },
+  "incidents": {
+    "active": "Gníomhach",
+    "confirm_delete": "Scriosfaidh sé seo an eachtra seo go buan.",
+    "confirm_resolve": "Marcálfaidh sé seo an eachtra mar réitithe.",
+    "create": "Cruthaigh eachtra",
+    "created_success": "Eachtra cruthaithe go rathúil",
+    "delete": "Scrios eachtra",
+    "deleted_success": "Eachtra scriosta go rathúil",
+    "edit": "Cuir eachtra in eagar",
+    "form": {
+      "content_label": "Ábhar",
+      "content_placeholder": "Déan cur síos ar an eachtra...",
+      "markdown_supported": "Tacaítear le Markdown",
+      "select_status_page": "Roghnaigh leathanach stádais...",
+      "status_page_label": "Leathanach stádais",
+      "status_page_required": "Tá leathanach stádais riachtanach",
+      "style_label": "Stíl",
+      "title_label": "Teideal",
+      "title_placeholder": "Teideal na heachtra",
+      "title_required": "Tá teideal riachtanach"
+    },
+    "no_incidents": "Gan eachtraí",
+    "resolve": "Réitigh",
+    "resolved": "Réitithe",
+    "resolved_success": "Eachtra réitithe go rathúil",
+    "style": {
+      "danger": "Contúirt",
+      "info": "Eolas",
+      "warning": "Rabhadh"
+    },
+    "title": "Eachtraí",
+    "updated_success": "Eachtra nuashonraithe go rathúil"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Eachtraí",
     "maintenance": "Cothromaíocht",
     "monitors": "Móntóirí",
     "notification_channels": "Canálacha Fógairtí",
@@ -1230,6 +1264,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Eachtraí gníomhacha",
+      "history_title": "Stair eachtraí",
+      "no_active": "Gan eachtraí gníomhacha",
+      "no_history": "Gan stair eachtraí",
+      "resolved": "Réitithe"
+    },
     "messages": {
       "all_systems_operational": "Tá gach córas ag obair",
       "down": "Síos",

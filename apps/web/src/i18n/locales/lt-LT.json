@@ -115,6 +115,39 @@
       "passwords_mismatch": "Slaptažodžiai nesutampa"
     }
   },
+  "incidents": {
+    "active": "Aktyvus",
+    "confirm_delete": "Tai visam laikui ištrins šį incidentą.",
+    "confirm_resolve": "Tai pažymės incidentą kaip išspręstą.",
+    "create": "Sukurti incidentą",
+    "created_success": "Incidentas sėkmingai sukurtas",
+    "delete": "Ištrinti incidentą",
+    "deleted_success": "Incidentas sėkmingai ištrintas",
+    "edit": "Redaguoti incidentą",
+    "form": {
+      "content_label": "Turinys",
+      "content_placeholder": "Aprašykite incidentą...",
+      "markdown_supported": "Markdown palaikomas",
+      "select_status_page": "Pasirinkite būsenos puslapį...",
+      "status_page_label": "Būsenos puslapis",
+      "status_page_required": "Būsenos puslapis privalomas",
+      "style_label": "Stilius",
+      "title_label": "Pavadinimas",
+      "title_placeholder": "Incidento pavadinimas",
+      "title_required": "Pavadinimas privalomas"
+    },
+    "no_incidents": "Nėra incidentų",
+    "resolve": "Išspręsti",
+    "resolved": "Išspręstas",
+    "resolved_success": "Incidentas sėkmingai išspręstas",
+    "style": {
+      "danger": "Pavojus",
+      "info": "Informacija",
+      "warning": "Įspėjimas"
+    },
+    "title": "Incidentai",
+    "updated_success": "Incidentas sėkmingai atnaujintas"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Incidentai",
     "maintenance": "Priežiūra",
     "monitors": "Monitoriai",
     "notification_channels": "Pranešimo kanalai",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Aktyvūs incidentai",
+      "history_title": "Incidentų istorija",
+      "no_active": "Nėra aktyvių incidentų",
+      "no_history": "Nėra incidentų istorijos",
+      "resolved": "Išspręstas"
+    },
     "messages": {
       "all_systems_operational": "Visos sistemos veikia",
       "down": "Neveikia",

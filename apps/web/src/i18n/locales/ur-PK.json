@@ -115,6 +115,39 @@
       "passwords_mismatch": "پاس ورڈز مطابقت نہیں رکھتے"
     }
   },
+  "incidents": {
+    "active": "فعال",
+    "confirm_delete": "یہ اس واقعے کو مستقل طور پر حذف کر دے گا۔",
+    "confirm_resolve": "یہ واقعے کو حل شدہ کے طور پر نشان زد کرے گا۔",
+    "create": "واقعہ بنائیں",
+    "created_success": "واقعہ کامیابی سے بنایا گیا",
+    "delete": "واقعہ حذف کریں",
+    "deleted_success": "واقعہ کامیابی سے حذف ہو گیا",
+    "edit": "واقعہ میں ترمیم کریں",
+    "form": {
+      "content_label": "مواد",
+      "content_placeholder": "واقعے کی تفصیل بیان کریں...",
+      "markdown_supported": "Markdown معاونت یافتہ ہے",
+      "select_status_page": "اسٹیٹس صفحہ منتخب کریں...",
+      "status_page_label": "اسٹیٹس صفحہ",
+      "status_page_required": "اسٹیٹس صفحہ ضروری ہے",
+      "style_label": "انداز",
+      "title_label": "عنوان",
+      "title_placeholder": "واقعے کا عنوان",
+      "title_required": "عنوان ضروری ہے"
+    },
+    "no_incidents": "کوئی واقعات نہیں",
+    "resolve": "حل کریں",
+    "resolved": "حل شدہ",
+    "resolved_success": "واقعہ کامیابی سے حل ہو گیا",
+    "style": {
+      "danger": "خطرہ",
+      "info": "معلومات",
+      "warning": "انتباہ"
+    },
+    "title": "واقعات",
+    "updated_success": "واقعہ کامیابی سے اپ ڈیٹ ہو گیا"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "واقعات",
     "maintenance": "رکھ رکھاؤ",
     "monitors": "مانیٹرز",
     "notification_channels": "نوٹیفکیشن چینلز",
@@ -1230,6 +1264,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "فعال واقعات",
+      "history_title": "واقعات کی تاریخ",
+      "no_active": "کوئی فعال واقعات نہیں",
+      "no_history": "واقعات کی کوئی تاریخ نہیں",
+      "resolved": "حل شدہ"
+    },
     "messages": {
       "all_systems_operational": "تمام سسٹمز عملیاتی ہیں",
       "down": "غیر دستیاب",

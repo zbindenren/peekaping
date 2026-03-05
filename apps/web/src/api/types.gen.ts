@@ -139,6 +139,32 @@ export type HeartbeatModel = {
 
 export type HeartbeatMonitorStatus = 0 | 1 | 2 | 3;
 
+export type IncidentCreateDto = {
+  content?: string;
+  status_page_id: string;
+  style: 'info' | 'warning' | 'danger' | 'primary';
+  title: string;
+};
+
+export type IncidentModel = {
+  active?: boolean;
+  content?: string;
+  created_at?: string;
+  id?: string;
+  resolved_at?: string;
+  status_page_id?: string;
+  style?: string;
+  title?: string;
+  updated_at?: string;
+};
+
+export type IncidentUpdateDto = {
+  active?: boolean;
+  content?: string;
+  style?: 'info' | 'warning' | 'danger' | 'primary';
+  title?: string;
+};
+
 export type MaintenanceCreateUpdateDto = {
   active?: boolean;
   cron?: string;
@@ -233,10 +259,10 @@ export type MonitorCreateUpdateDto = {
 };
 
 export type MonitorCustomUptimeStatsDto = {
-  "24h"?: number;
-  "30d"?: number;
-  "365d"?: number;
-  "7d"?: number;
+  '24h'?: number;
+  '30d'?: number;
+  '365d'?: number;
+  '7d'?: number;
 };
 
 export type MonitorModel = {
@@ -248,6 +274,10 @@ export type MonitorModel = {
    * monitor interval in seconds to do request to url
    */
   interval?: number;
+  /**
+   * Last heartbeat for push monitors
+   */
+  last_heartbeat?: SharedHeartBeatModel;
   /**
    * Maximum retries before the service is marked as down and a notification is sent
    */
@@ -368,7 +398,7 @@ export type ProxyCreateUpdateDto = {
   host: string;
   password?: string;
   port: number;
-  protocol: "http" | "https" | "socks" | "socks4" | "socks5" | "socks5h";
+  protocol: 'http' | 'https' | 'socks' | 'socks4' | 'socks5' | 'socks5h';
   username?: string;
 };
 
@@ -389,12 +419,12 @@ export type ProxyPartialUpdateDto = {
   host?: string;
   password?: string;
   port?: number;
-  protocol?: "http" | "https" | "socks" | "socks4" | "socks5" | "socks5h";
+  protocol?: 'http' | 'https' | 'socks' | 'socks4' | 'socks5' | 'socks5h';
   username?: string;
 };
 
 export type SettingCreateUpdateDto = {
-  type: "string" | "int" | "bool" | "json";
+  type: 'string' | 'int' | 'bool' | 'json';
   value?: string;
 };
 
@@ -405,6 +435,21 @@ export type SettingModel = {
   type?: string;
   updated_at?: string;
   value?: string;
+};
+
+export type SharedHeartBeatModel = {
+  down_count?: number;
+  duration?: number;
+  end_time?: string;
+  id?: string;
+  important?: boolean;
+  monitor_id?: string;
+  msg?: string;
+  notified?: boolean;
+  ping?: number;
+  retries?: number;
+  status?: SharedMonitorStatus;
+  time?: string;
 };
 
 export type SharedMonitorStatus = 0 | 1 | 2 | 3;
@@ -559,6 +604,11 @@ export type UtilsApiResponseArrayHeartbeatModel = {
   message: string;
 };
 
+export type UtilsApiResponseArrayIncidentModel = {
+  data: Array<IncidentModel>;
+  message: string;
+};
+
 export type UtilsApiResponseArrayMaintenanceModel = {
   data: Array<MaintenanceModel>;
   message: string;
@@ -596,6 +646,11 @@ export type UtilsApiResponseArrayTagModel = {
 
 export type UtilsApiResponseAuthLoginResponse = {
   data: AuthLoginResponse;
+  message: string;
+};
+
+export type UtilsApiResponseIncidentModel = {
+  data: IncidentModel;
   message: string;
 };
 
@@ -663,7 +718,7 @@ export type GetApiKeysData = {
   body?: never;
   path?: never;
   query?: never;
-  url: "/api-keys";
+  url: '/api-keys';
 };
 
 export type GetApiKeysErrors = {
@@ -691,7 +746,7 @@ export type PostApiKeysData = {
   body: ApiKeyCreateApiKeyDto;
   path?: never;
   query?: never;
-  url: "/api-keys";
+  url: '/api-keys';
 };
 
 export type PostApiKeysErrors = {
@@ -721,7 +776,7 @@ export type GetApiKeysConfigData = {
   body?: never;
   path?: never;
   query?: never;
-  url: "/api-keys/config";
+  url: '/api-keys/config';
 };
 
 export type GetApiKeysConfigResponses = {
@@ -743,7 +798,7 @@ export type DeleteApiKeysByIdData = {
     id: string;
   };
   query?: never;
-  url: "/api-keys/{id}";
+  url: '/api-keys/{id}';
 };
 
 export type DeleteApiKeysByIdErrors = {
@@ -776,7 +831,7 @@ export type GetApiKeysByIdData = {
     id: string;
   };
   query?: never;
-  url: "/api-keys/{id}";
+  url: '/api-keys/{id}';
 };
 
 export type GetApiKeysByIdErrors = {
@@ -815,7 +870,7 @@ export type PutApiKeysByIdData = {
     id: string;
   };
   query?: never;
-  url: "/api-keys/{id}";
+  url: '/api-keys/{id}';
 };
 
 export type PutApiKeysByIdErrors = {
@@ -853,7 +908,7 @@ export type PostAuth2FaDisableData = {
   body: AuthTwoFaDisableRequestDto;
   path?: never;
   query?: never;
-  url: "/auth/2fa/disable";
+  url: '/auth/2fa/disable';
 };
 
 export type PostAuth2FaDisableErrors = {
@@ -887,7 +942,7 @@ export type PostAuth2FaSetupData = {
   body: AuthTwoFaSetupRequestDto;
   path?: never;
   query?: never;
-  url: "/auth/2fa/setup";
+  url: '/auth/2fa/setup';
 };
 
 export type PostAuth2FaSetupErrors = {
@@ -921,7 +976,7 @@ export type PostAuth2FaVerifyData = {
   body: AuthTwoFaVerifyRequestDto;
   path?: never;
   query?: never;
-  url: "/auth/2fa/verify";
+  url: '/auth/2fa/verify';
 };
 
 export type PostAuth2FaVerifyErrors = {
@@ -955,7 +1010,7 @@ export type PostAuthLoginData = {
   body: AuthLoginDto;
   path?: never;
   query?: never;
-  url: "/auth/login";
+  url: '/auth/login';
 };
 
 export type PostAuthLoginErrors = {
@@ -992,7 +1047,7 @@ export type PutAuthPasswordData = {
   body: AuthUpdatePasswordDto;
   path?: never;
   query?: never;
-  url: "/auth/password";
+  url: '/auth/password';
 };
 
 export type PutAuthPasswordErrors = {
@@ -1030,7 +1085,7 @@ export type PostAuthRefreshData = {
   body: AuthRefreshTokenDto;
   path?: never;
   query?: never;
-  url: "/auth/refresh";
+  url: '/auth/refresh';
 };
 
 export type PostAuthRefreshErrors = {
@@ -1068,7 +1123,7 @@ export type PostAuthRegisterData = {
   body: AuthRegisterDto;
   path?: never;
   query?: never;
-  url: "/auth/register";
+  url: '/auth/register';
 };
 
 export type PostAuthRegisterErrors = {
@@ -1121,7 +1176,7 @@ export type GetBadgeByMonitorIdCertExpData = {
      */
     downDays?: number;
   };
-  url: "/badge/{monitorId}/cert-exp";
+  url: '/badge/{monitorId}/cert-exp';
 };
 
 export type GetBadgeByMonitorIdCertExpErrors = {
@@ -1182,7 +1237,7 @@ export type GetBadgeByMonitorIdPingByDurationData = {
      */
     color?: string;
   };
-  url: "/badge/{monitorId}/ping/{duration}";
+  url: '/badge/{monitorId}/ping/{duration}';
 };
 
 export type GetBadgeByMonitorIdPingByDurationErrors = {
@@ -1239,7 +1294,7 @@ export type GetBadgeByMonitorIdResponseData = {
      */
     color?: string;
   };
-  url: "/badge/{monitorId}/response";
+  url: '/badge/{monitorId}/response';
 };
 
 export type GetBadgeByMonitorIdResponseErrors = {
@@ -1300,7 +1355,7 @@ export type GetBadgeByMonitorIdStatusData = {
      */
     downColor?: string;
   };
-  url: "/badge/{monitorId}/status";
+  url: '/badge/{monitorId}/status';
 };
 
 export type GetBadgeByMonitorIdStatusErrors = {
@@ -1361,7 +1416,7 @@ export type GetBadgeByMonitorIdUptimeByDurationData = {
      */
     color?: string;
   };
-  url: "/badge/{monitorId}/uptime/{duration}";
+  url: '/badge/{monitorId}/uptime/{duration}';
 };
 
 export type GetBadgeByMonitorIdUptimeByDurationErrors = {
@@ -1396,7 +1451,7 @@ export type GetHealthData = {
   body?: never;
   path?: never;
   query?: never;
-  url: "/health";
+  url: '/health';
 };
 
 export type GetHealthResponses = {
@@ -1409,6 +1464,221 @@ export type GetHealthResponses = {
 };
 
 export type GetHealthResponse = GetHealthResponses[keyof GetHealthResponses];
+
+export type GetIncidentsData = {
+  body?: never;
+  path?: never;
+  query?: {
+    /**
+     * Search query
+     */
+    q?: string;
+    /**
+     * Page number
+     */
+    page?: number;
+    /**
+     * Items per page
+     */
+    limit?: number;
+  };
+  url: '/incidents';
+};
+
+export type GetIncidentsErrors = {
+  /**
+   * Bad Request
+   */
+  400: UtilsApiError;
+  /**
+   * Internal Server Error
+   */
+  500: UtilsApiError;
+};
+
+export type GetIncidentsError = GetIncidentsErrors[keyof GetIncidentsErrors];
+
+export type GetIncidentsResponses = {
+  /**
+   * OK
+   */
+  200: UtilsApiResponseArrayIncidentModel;
+};
+
+export type GetIncidentsResponse =
+  GetIncidentsResponses[keyof GetIncidentsResponses];
+
+export type PostIncidentsData = {
+  /**
+   * Incident object
+   */
+  body: IncidentCreateDto;
+  path?: never;
+  query?: never;
+  url: '/incidents';
+};
+
+export type PostIncidentsErrors = {
+  /**
+   * Bad Request
+   */
+  400: UtilsApiError;
+  /**
+   * Internal Server Error
+   */
+  500: UtilsApiError;
+};
+
+export type PostIncidentsError = PostIncidentsErrors[keyof PostIncidentsErrors];
+
+export type PostIncidentsResponses = {
+  /**
+   * Created
+   */
+  201: UtilsApiResponseIncidentModel;
+};
+
+export type PostIncidentsResponse =
+  PostIncidentsResponses[keyof PostIncidentsResponses];
+
+export type DeleteIncidentsByIdData = {
+  body?: never;
+  path: {
+    /**
+     * Incident ID
+     */
+    id: string;
+  };
+  query?: never;
+  url: '/incidents/{id}';
+};
+
+export type DeleteIncidentsByIdErrors = {
+  /**
+   * Internal Server Error
+   */
+  500: UtilsApiError;
+};
+
+export type DeleteIncidentsByIdError =
+  DeleteIncidentsByIdErrors[keyof DeleteIncidentsByIdErrors];
+
+export type DeleteIncidentsByIdResponses = {
+  /**
+   * OK
+   */
+  200: UtilsApiResponseAny;
+};
+
+export type DeleteIncidentsByIdResponse =
+  DeleteIncidentsByIdResponses[keyof DeleteIncidentsByIdResponses];
+
+export type GetIncidentsByIdData = {
+  body?: never;
+  path: {
+    /**
+     * Incident ID
+     */
+    id: string;
+  };
+  query?: never;
+  url: '/incidents/{id}';
+};
+
+export type GetIncidentsByIdErrors = {
+  /**
+   * Not Found
+   */
+  404: UtilsApiError;
+  /**
+   * Internal Server Error
+   */
+  500: UtilsApiError;
+};
+
+export type GetIncidentsByIdError =
+  GetIncidentsByIdErrors[keyof GetIncidentsByIdErrors];
+
+export type GetIncidentsByIdResponses = {
+  /**
+   * OK
+   */
+  200: UtilsApiResponseIncidentModel;
+};
+
+export type GetIncidentsByIdResponse =
+  GetIncidentsByIdResponses[keyof GetIncidentsByIdResponses];
+
+export type PatchIncidentsByIdData = {
+  /**
+   * Incident update object
+   */
+  body: IncidentUpdateDto;
+  path: {
+    /**
+     * Incident ID
+     */
+    id: string;
+  };
+  query?: never;
+  url: '/incidents/{id}';
+};
+
+export type PatchIncidentsByIdErrors = {
+  /**
+   * Bad Request
+   */
+  400: UtilsApiError;
+  /**
+   * Internal Server Error
+   */
+  500: UtilsApiError;
+};
+
+export type PatchIncidentsByIdError =
+  PatchIncidentsByIdErrors[keyof PatchIncidentsByIdErrors];
+
+export type PatchIncidentsByIdResponses = {
+  /**
+   * OK
+   */
+  200: UtilsApiResponseIncidentModel;
+};
+
+export type PatchIncidentsByIdResponse =
+  PatchIncidentsByIdResponses[keyof PatchIncidentsByIdResponses];
+
+export type PatchIncidentsByIdResolveData = {
+  body?: never;
+  path: {
+    /**
+     * Incident ID
+     */
+    id: string;
+  };
+  query?: never;
+  url: '/incidents/{id}/resolve';
+};
+
+export type PatchIncidentsByIdResolveErrors = {
+  /**
+   * Internal Server Error
+   */
+  500: UtilsApiError;
+};
+
+export type PatchIncidentsByIdResolveError =
+  PatchIncidentsByIdResolveErrors[keyof PatchIncidentsByIdResolveErrors];
+
+export type PatchIncidentsByIdResolveResponses = {
+  /**
+   * OK
+   */
+  200: UtilsApiResponseIncidentModel;
+};
+
+export type PatchIncidentsByIdResolveResponse =
+  PatchIncidentsByIdResolveResponses[keyof PatchIncidentsByIdResolveResponses];
 
 export type GetMaintenancesData = {
   body?: never;
@@ -1431,7 +1701,7 @@ export type GetMaintenancesData = {
      */
     limit?: number;
   };
-  url: "/maintenances";
+  url: '/maintenances';
 };
 
 export type GetMaintenancesErrors = {
@@ -1469,7 +1739,7 @@ export type PostMaintenancesData = {
   body: MaintenanceCreateUpdateDto;
   path?: never;
   query?: never;
-  url: "/maintenances";
+  url: '/maintenances';
 };
 
 export type PostMaintenancesErrors = {
@@ -1505,7 +1775,7 @@ export type DeleteMaintenancesByIdData = {
     id: string;
   };
   query?: never;
-  url: "/maintenances/{id}";
+  url: '/maintenances/{id}';
 };
 
 export type DeleteMaintenancesByIdErrors = {
@@ -1545,7 +1815,7 @@ export type GetMaintenancesByIdData = {
     id: string;
   };
   query?: never;
-  url: "/maintenances/{id}";
+  url: '/maintenances/{id}';
 };
 
 export type GetMaintenancesByIdErrors = {
@@ -1588,7 +1858,7 @@ export type PatchMaintenancesByIdData = {
     id: string;
   };
   query?: never;
-  url: "/maintenances/{id}";
+  url: '/maintenances/{id}';
 };
 
 export type PatchMaintenancesByIdErrors = {
@@ -1631,7 +1901,7 @@ export type PutMaintenancesByIdData = {
     id: string;
   };
   query?: never;
-  url: "/maintenances/{id}";
+  url: '/maintenances/{id}';
 };
 
 export type PutMaintenancesByIdErrors = {
@@ -1671,7 +1941,7 @@ export type PatchMaintenancesByIdPauseData = {
     id: string;
   };
   query?: never;
-  url: "/maintenances/{id}/pause";
+  url: '/maintenances/{id}/pause';
 };
 
 export type PatchMaintenancesByIdPauseErrors = {
@@ -1711,7 +1981,7 @@ export type PatchMaintenancesByIdResumeData = {
     id: string;
   };
   query?: never;
-  url: "/maintenances/{id}/resume";
+  url: '/maintenances/{id}/resume';
 };
 
 export type PatchMaintenancesByIdResumeErrors = {
@@ -1771,7 +2041,7 @@ export type GetMonitorsData = {
      */
     tag_ids?: string;
   };
-  url: "/monitors";
+  url: '/monitors';
 };
 
 export type GetMonitorsErrors = {
@@ -1808,7 +2078,7 @@ export type PostMonitorsData = {
   body: MonitorCreateUpdateDto;
   path?: never;
   query?: never;
-  url: "/monitors";
+  url: '/monitors';
 };
 
 export type PostMonitorsErrors = {
@@ -1843,7 +2113,7 @@ export type GetMonitorsBatchData = {
      */
     ids: string;
   };
-  url: "/monitors/batch";
+  url: '/monitors/batch';
 };
 
 export type GetMonitorsBatchErrors = {
@@ -1879,7 +2149,7 @@ export type DeleteMonitorsByIdData = {
     id: string;
   };
   query?: never;
-  url: "/monitors/{id}";
+  url: '/monitors/{id}';
 };
 
 export type DeleteMonitorsByIdErrors = {
@@ -1919,7 +2189,7 @@ export type GetMonitorsByIdData = {
     id: string;
   };
   query?: never;
-  url: "/monitors/{id}";
+  url: '/monitors/{id}';
 };
 
 export type GetMonitorsByIdErrors = {
@@ -1962,7 +2232,7 @@ export type PatchMonitorsByIdData = {
     id: string;
   };
   query?: never;
-  url: "/monitors/{id}";
+  url: '/monitors/{id}';
 };
 
 export type PatchMonitorsByIdErrors = {
@@ -2005,7 +2275,7 @@ export type PutMonitorsByIdData = {
     id: string;
   };
   query?: never;
-  url: "/monitors/{id}";
+  url: '/monitors/{id}';
 };
 
 export type PutMonitorsByIdErrors = {
@@ -2062,7 +2332,7 @@ export type GetMonitorsByIdHeartbeatsData = {
      */
     reverse?: boolean;
   };
-  url: "/monitors/{id}/heartbeats";
+  url: '/monitors/{id}/heartbeats';
 };
 
 export type GetMonitorsByIdHeartbeatsErrors = {
@@ -2102,7 +2372,7 @@ export type PostMonitorsByIdResetData = {
     id: string;
   };
   query?: never;
-  url: "/monitors/{id}/reset";
+  url: '/monitors/{id}/reset';
 };
 
 export type PostMonitorsByIdResetErrors = {
@@ -2155,7 +2425,7 @@ export type GetMonitorsByIdStatsPointsData = {
      */
     granularity?: string;
   };
-  url: "/monitors/{id}/stats/points";
+  url: '/monitors/{id}/stats/points';
 };
 
 export type GetMonitorsByIdStatsPointsErrors = {
@@ -2195,7 +2465,7 @@ export type GetMonitorsByIdStatsUptimeData = {
     id: string;
   };
   query?: never;
-  url: "/monitors/{id}/stats/uptime";
+  url: '/monitors/{id}/stats/uptime';
 };
 
 export type GetMonitorsByIdStatsUptimeErrors = {
@@ -2235,7 +2505,7 @@ export type GetMonitorsByIdTlsData = {
     id: string;
   };
   query?: never;
-  url: "/monitors/{id}/tls";
+  url: '/monitors/{id}/tls';
 };
 
 export type GetMonitorsByIdTlsErrors = {
@@ -2283,7 +2553,7 @@ export type GetNotificationChannelsData = {
      */
     limit?: number;
   };
-  url: "/notification-channels";
+  url: '/notification-channels';
 };
 
 export type GetNotificationChannelsErrors = {
@@ -2321,7 +2591,7 @@ export type PostNotificationChannelsData = {
   body: NotificationChannelCreateUpdateDto;
   path?: never;
   query?: never;
-  url: "/notification-channels";
+  url: '/notification-channels';
 };
 
 export type PostNotificationChannelsErrors = {
@@ -2355,7 +2625,7 @@ export type PostNotificationChannelsTestData = {
   body: NotificationChannelCreateUpdateDto;
   path?: never;
   query?: never;
-  url: "/notification-channels/test";
+  url: '/notification-channels/test';
 };
 
 export type PostNotificationChannelsTestErrors = {
@@ -2391,7 +2661,7 @@ export type DeleteNotificationChannelsByIdData = {
     id: string;
   };
   query?: never;
-  url: "/notification-channels/{id}";
+  url: '/notification-channels/{id}';
 };
 
 export type DeleteNotificationChannelsByIdErrors = {
@@ -2431,7 +2701,7 @@ export type GetNotificationChannelsByIdData = {
     id: string;
   };
   query?: never;
-  url: "/notification-channels/{id}";
+  url: '/notification-channels/{id}';
 };
 
 export type GetNotificationChannelsByIdErrors = {
@@ -2474,7 +2744,7 @@ export type PatchNotificationChannelsByIdData = {
     id: string;
   };
   query?: never;
-  url: "/notification-channels/{id}";
+  url: '/notification-channels/{id}';
 };
 
 export type PatchNotificationChannelsByIdErrors = {
@@ -2517,7 +2787,7 @@ export type PutNotificationChannelsByIdData = {
     id: string;
   };
   query?: never;
-  url: "/notification-channels/{id}";
+  url: '/notification-channels/{id}';
 };
 
 export type PutNotificationChannelsByIdErrors = {
@@ -2565,7 +2835,7 @@ export type GetProxiesData = {
      */
     limit?: number;
   };
-  url: "/proxies";
+  url: '/proxies';
 };
 
 export type GetProxiesErrors = {
@@ -2601,7 +2871,7 @@ export type PostProxiesData = {
   body: ProxyCreateUpdateDto;
   path?: never;
   query?: never;
-  url: "/proxies";
+  url: '/proxies';
 };
 
 export type PostProxiesErrors = {
@@ -2636,7 +2906,7 @@ export type DeleteProxiesByIdData = {
     id: string;
   };
   query?: never;
-  url: "/proxies/{id}";
+  url: '/proxies/{id}';
 };
 
 export type DeleteProxiesByIdErrors = {
@@ -2676,7 +2946,7 @@ export type GetProxiesByIdData = {
     id: string;
   };
   query?: never;
-  url: "/proxies/{id}";
+  url: '/proxies/{id}';
 };
 
 export type GetProxiesByIdErrors = {
@@ -2719,7 +2989,7 @@ export type PatchProxiesByIdData = {
     id: string;
   };
   query?: never;
-  url: "/proxies/{id}";
+  url: '/proxies/{id}';
 };
 
 export type PatchProxiesByIdErrors = {
@@ -2762,7 +3032,7 @@ export type PutProxiesByIdData = {
     id: string;
   };
   query?: never;
-  url: "/proxies/{id}";
+  url: '/proxies/{id}';
 };
 
 export type PutProxiesByIdErrors = {
@@ -2802,7 +3072,7 @@ export type DeleteSettingsKeyByKeyData = {
     key: string;
   };
   query?: never;
-  url: "/settings/key/{key}";
+  url: '/settings/key/{key}';
 };
 
 export type DeleteSettingsKeyByKeyErrors = {
@@ -2838,7 +3108,7 @@ export type GetSettingsKeyByKeyData = {
     key: string;
   };
   query?: never;
-  url: "/settings/key/{key}";
+  url: '/settings/key/{key}';
 };
 
 export type GetSettingsKeyByKeyErrors = {
@@ -2877,7 +3147,7 @@ export type PutSettingsKeyByKeyData = {
     key: string;
   };
   query?: never;
-  url: "/settings/key/{key}";
+  url: '/settings/key/{key}';
 };
 
 export type PutSettingsKeyByKeyErrors = {
@@ -2921,7 +3191,7 @@ export type GetStatusPagesData = {
      */
     limit?: number;
   };
-  url: "/status-pages";
+  url: '/status-pages';
 };
 
 export type GetStatusPagesErrors = {
@@ -2955,7 +3225,7 @@ export type PostStatusPagesData = {
   body: StatusPageCreateStatusPageDto;
   path?: never;
   query?: never;
-  url: "/status-pages";
+  url: '/status-pages';
 };
 
 export type PostStatusPagesErrors = {
@@ -2991,7 +3261,7 @@ export type GetStatusPagesDomainByDomainData = {
     domain: string;
   };
   query?: never;
-  url: "/status-pages/domain/{domain}";
+  url: '/status-pages/domain/{domain}';
 };
 
 export type GetStatusPagesDomainByDomainErrors = {
@@ -3027,7 +3297,7 @@ export type GetStatusPagesSlugBySlugData = {
     slug: string;
   };
   query?: never;
-  url: "/status-pages/slug/{slug}";
+  url: '/status-pages/slug/{slug}';
 };
 
 export type GetStatusPagesSlugBySlugErrors = {
@@ -3054,6 +3324,38 @@ export type GetStatusPagesSlugBySlugResponses = {
 export type GetStatusPagesSlugBySlugResponse =
   GetStatusPagesSlugBySlugResponses[keyof GetStatusPagesSlugBySlugResponses];
 
+export type GetStatusPagesSlugBySlugIncidentsData = {
+  body?: never;
+  path: {
+    /**
+     * Status page slug
+     */
+    slug: string;
+  };
+  query?: never;
+  url: '/status-pages/slug/{slug}/incidents';
+};
+
+export type GetStatusPagesSlugBySlugIncidentsErrors = {
+  /**
+   * Internal Server Error
+   */
+  500: UtilsApiError;
+};
+
+export type GetStatusPagesSlugBySlugIncidentsError =
+  GetStatusPagesSlugBySlugIncidentsErrors[keyof GetStatusPagesSlugBySlugIncidentsErrors];
+
+export type GetStatusPagesSlugBySlugIncidentsResponses = {
+  /**
+   * OK
+   */
+  200: UtilsApiResponseArrayIncidentModel;
+};
+
+export type GetStatusPagesSlugBySlugIncidentsResponse =
+  GetStatusPagesSlugBySlugIncidentsResponses[keyof GetStatusPagesSlugBySlugIncidentsResponses];
+
 export type GetStatusPagesSlugBySlugMonitorsData = {
   body?: never;
   path: {
@@ -3063,7 +3365,7 @@ export type GetStatusPagesSlugBySlugMonitorsData = {
     slug: string;
   };
   query?: never;
-  url: "/status-pages/slug/{slug}/monitors";
+  url: '/status-pages/slug/{slug}/monitors';
 };
 
 export type GetStatusPagesSlugBySlugMonitorsErrors = {
@@ -3099,7 +3401,7 @@ export type GetStatusPagesSlugBySlugMonitorsHomepageData = {
     slug: string;
   };
   query?: never;
-  url: "/status-pages/slug/{slug}/monitors/homepage";
+  url: '/status-pages/slug/{slug}/monitors/homepage';
 };
 
 export type GetStatusPagesSlugBySlugMonitorsHomepageErrors = {
@@ -3135,7 +3437,7 @@ export type DeleteStatusPagesByIdData = {
     id: string;
   };
   query?: never;
-  url: "/status-pages/{id}";
+  url: '/status-pages/{id}';
 };
 
 export type DeleteStatusPagesByIdErrors = {
@@ -3171,7 +3473,7 @@ export type GetStatusPagesByIdData = {
     id: string;
   };
   query?: never;
-  url: "/status-pages/{id}";
+  url: '/status-pages/{id}';
 };
 
 export type GetStatusPagesByIdErrors = {
@@ -3210,7 +3512,7 @@ export type PatchStatusPagesByIdData = {
     id: string;
   };
   query?: never;
-  url: "/status-pages/{id}";
+  url: '/status-pages/{id}';
 };
 
 export type PatchStatusPagesByIdErrors = {
@@ -3258,7 +3560,7 @@ export type GetTagsData = {
      */
     limit?: number;
   };
-  url: "/tags";
+  url: '/tags';
 };
 
 export type GetTagsErrors = {
@@ -3294,7 +3596,7 @@ export type PostTagsData = {
   body: TagCreateUpdateDto;
   path?: never;
   query?: never;
-  url: "/tags";
+  url: '/tags';
 };
 
 export type PostTagsErrors = {
@@ -3328,7 +3630,7 @@ export type DeleteTagsByIdData = {
     id: string;
   };
   query?: never;
-  url: "/tags/{id}";
+  url: '/tags/{id}';
 };
 
 export type DeleteTagsByIdErrors = {
@@ -3368,7 +3670,7 @@ export type GetTagsByIdData = {
     id: string;
   };
   query?: never;
-  url: "/tags/{id}";
+  url: '/tags/{id}';
 };
 
 export type GetTagsByIdErrors = {
@@ -3410,7 +3712,7 @@ export type PatchTagsByIdData = {
     id: string;
   };
   query?: never;
-  url: "/tags/{id}";
+  url: '/tags/{id}';
 };
 
 export type PatchTagsByIdErrors = {
@@ -3452,7 +3754,7 @@ export type PutTagsByIdData = {
     id: string;
   };
   query?: never;
-  url: "/tags/{id}";
+  url: '/tags/{id}';
 };
 
 export type PutTagsByIdErrors = {
@@ -3486,7 +3788,7 @@ export type GetVersionData = {
   body?: never;
   path?: never;
   query?: never;
-  url: "/version";
+  url: '/version';
 };
 
 export type GetVersionResponses = {

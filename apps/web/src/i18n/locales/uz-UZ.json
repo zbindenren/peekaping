@@ -115,6 +115,39 @@
       "passwords_mismatch": "Parollar mos kelmadi"
     }
   },
+  "incidents": {
+    "active": "Faol",
+    "confirm_delete": "Bu hodisani butunlay o'chiradi.",
+    "confirm_resolve": "Bu hodisani hal qilingan deb belgilaydi.",
+    "create": "Hodisa yaratish",
+    "created_success": "Hodisa muvaffaqiyatli yaratildi",
+    "delete": "Hodisani o'chirish",
+    "deleted_success": "Hodisa muvaffaqiyatli o'chirildi",
+    "edit": "Hodisani tahrirlash",
+    "form": {
+      "content_label": "Mazmun",
+      "content_placeholder": "Hodisani tavsiflang...",
+      "markdown_supported": "Markdown qo'llab-quvvatlanadi",
+      "select_status_page": "Holat sahifasini tanlang...",
+      "status_page_label": "Holat sahifasi",
+      "status_page_required": "Holat sahifasi majburiy",
+      "style_label": "Uslub",
+      "title_label": "Sarlavha",
+      "title_placeholder": "Hodisa sarlavhasi",
+      "title_required": "Sarlavha majburiy"
+    },
+    "no_incidents": "Hodisalar mavjud emas",
+    "resolve": "Hal qilish",
+    "resolved": "Hal qilingan",
+    "resolved_success": "Hodisa muvaffaqiyatli hal qilindi",
+    "style": {
+      "danger": "Xavf",
+      "info": "Ma'lumot",
+      "warning": "Ogohlantirish"
+    },
+    "title": "Hodisalar",
+    "updated_success": "Hodisa muvaffaqiyatli yangilandi"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Hodisalar",
     "maintenance": "Texnik xizmat",
     "monitors": "Monitoring",
     "notification_channels": "Xabarnoma kanallari",
@@ -1230,6 +1264,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Faol hodisalar",
+      "history_title": "Hodisalar tarixi",
+      "no_active": "Faol hodisalar mavjud emas",
+      "no_history": "Hodisalar tarixi mavjud emas",
+      "resolved": "Hal qilingan"
+    },
     "messages": {
       "all_systems_operational": "Barcha tizimlar ishlamoqda",
       "down": "O'chgan",

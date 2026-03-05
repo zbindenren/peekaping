@@ -245,6 +245,63 @@ definitions:
     - MonitorStatusUp
     - MonitorStatusPending
     - MonitorStatusMaintenance
+  incident.CreateDto:
+    properties:
+      content:
+        type: string
+      status_page_id:
+        type: string
+      style:
+        enum:
+        - info
+        - warning
+        - danger
+        - primary
+        type: string
+      title:
+        type: string
+    required:
+    - status_page_id
+    - style
+    - title
+    type: object
+  incident.Model:
+    properties:
+      active:
+        type: boolean
+      content:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: string
+      resolved_at:
+        type: string
+      status_page_id:
+        type: string
+      style:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  incident.UpdateDto:
+    properties:
+      active:
+        type: boolean
+      content:
+        type: string
+      style:
+        enum:
+        - info
+        - warning
+        - danger
+        - primary
+        type: string
+      title:
+        type: string
+    type: object
   maintenance.CreateUpdateDto:
     properties:
       active:
@@ -1178,6 +1235,18 @@ definitions:
     - data
     - message
     type: object
+  utils.ApiResponse-array_incident_Model:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/incident.Model'
+        type: array
+      message:
+        type: string
+    required:
+    - data
+    - message
+    type: object
   utils.ApiResponse-array_maintenance_Model:
     properties:
       data:
@@ -1266,6 +1335,16 @@ definitions:
     properties:
       data:
         $ref: '#/definitions/auth.LoginResponse'
+      message:
+        type: string
+    required:
+    - data
+    - message
+    type: object
+  utils.ApiResponse-incident_Model:
+    properties:
+      data:
+        $ref: '#/definitions/incident.Model'
       message:
         type: string
     required:
@@ -2034,6 +2113,189 @@ paths:
       summary: Get server health
       tags:
       - System
+  /incidents:
+    get:
+      parameters:
+      - description: Search query
+        in: query
+        name: q
+        type: string
+      - default: 1
+        description: Page number
+        in: query
+        name: page
+        type: integer
+      - default: 10
+        description: Items per page
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.ApiResponse-array_incident_Model'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/utils.APIError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/utils.APIError'
+      security:
+      - JwtAuth: []
+      - ApiKeyAuth: []
+      summary: Get incidents
+      tags:
+      - Incidents
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Incident object
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/incident.CreateDto'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/utils.ApiResponse-incident_Model'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/utils.APIError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/utils.APIError'
+      security:
+      - JwtAuth: []
+      - ApiKeyAuth: []
+      summary: Create incident
+      tags:
+      - Incidents
+  /incidents/{id}:
+    delete:
+      parameters:
+      - description: Incident ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.ApiResponse-any'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/utils.APIError'
+      security:
+      - JwtAuth: []
+      - ApiKeyAuth: []
+      summary: Delete incident
+      tags:
+      - Incidents
+    get:
+      parameters:
+      - description: Incident ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.ApiResponse-incident_Model'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/utils.APIError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/utils.APIError'
+      security:
+      - JwtAuth: []
+      - ApiKeyAuth: []
+      summary: Get incident by ID
+      tags:
+      - Incidents
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - description: Incident ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Incident update object
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/incident.UpdateDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.ApiResponse-incident_Model'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/utils.APIError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/utils.APIError'
+      security:
+      - JwtAuth: []
+      - ApiKeyAuth: []
+      summary: Update incident
+      tags:
+      - Incidents
+  /incidents/{id}/resolve:
+    patch:
+      parameters:
+      - description: Incident ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.ApiResponse-incident_Model'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/utils.APIError'
+      security:
+      - JwtAuth: []
+      - ApiKeyAuth: []
+      summary: Resolve incident
+      tags:
+      - Incidents
   /maintenances:
     get:
       parameters:
@@ -3529,6 +3791,28 @@ paths:
           schema:
             $ref: '#/definitions/utils.APIError'
       summary: Get a status page by slug
+      tags:
+      - Status Pages
+  /status-pages/slug/{slug}/incidents:
+    get:
+      parameters:
+      - description: Status page slug
+        in: path
+        name: slug
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.ApiResponse-array_incident_Model'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/utils.APIError'
+      summary: Get incidents for a status page
       tags:
       - Status Pages
   /status-pages/slug/{slug}/monitors:

@@ -115,6 +115,39 @@
       "passwords_mismatch": "Lösenorden matchar inte"
     }
   },
+  "incidents": {
+    "active": "Aktiv",
+    "confirm_delete": "Detta kommer att permanent ta bort denna incident.",
+    "confirm_resolve": "Detta kommer att markera incidenten som löst.",
+    "create": "Skapa incident",
+    "created_success": "Incident skapad",
+    "delete": "Ta bort incident",
+    "deleted_success": "Incident borttagen",
+    "edit": "Redigera incident",
+    "form": {
+      "content_label": "Innehåll",
+      "content_placeholder": "Beskriv incidenten...",
+      "markdown_supported": "Markdown stöds",
+      "select_status_page": "Välj en statussida...",
+      "status_page_label": "Statussida",
+      "status_page_required": "Statussida krävs",
+      "style_label": "Stil",
+      "title_label": "Titel",
+      "title_placeholder": "Incidenttitel",
+      "title_required": "Titel krävs"
+    },
+    "no_incidents": "Inga incidenter",
+    "resolve": "Lös",
+    "resolved": "Löst",
+    "resolved_success": "Incident löst",
+    "style": {
+      "danger": "Fara",
+      "info": "Info",
+      "warning": "Varning"
+    },
+    "title": "Incidenter",
+    "updated_success": "Incident uppdaterad"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Incidenter",
     "maintenance": "Underhåll",
     "monitors": "Övervakningar",
     "notification_channels": "Aviseringskanaler",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Aktiva incidenter",
+      "history_title": "Incidenthistorik",
+      "no_active": "Inga aktiva incidenter",
+      "no_history": "Ingen incidenthistorik",
+      "resolved": "Löst"
+    },
     "messages": {
       "all_systems_operational": "Alla system fungerar",
       "down": "Ned",

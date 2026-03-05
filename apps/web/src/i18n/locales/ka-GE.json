@@ -115,6 +115,39 @@
       "passwords_mismatch": "პაროლები არ ემთხვევა"
     }
   },
+  "incidents": {
+    "active": "აქტიური",
+    "confirm_delete": "ეს სამუდამოდ წაშლის ამ ინციდენტს.",
+    "confirm_resolve": "ეს ინციდენტს მოგვარებულად მონიშნავს.",
+    "create": "ინციდენტის შექმნა",
+    "created_success": "ინციდენტი წარმატებით შეიქმნა",
+    "delete": "ინციდენტის წაშლა",
+    "deleted_success": "ინციდენტი წარმატებით წაიშალა",
+    "edit": "ინციდენტის რედაქტირება",
+    "form": {
+      "content_label": "შინაარსი",
+      "content_placeholder": "აღწერეთ ინციდენტი...",
+      "markdown_supported": "Markdown მხარდაჭერილია",
+      "select_status_page": "აირჩიეთ სტატუსის გვერდი...",
+      "status_page_label": "სტატუსის გვერდი",
+      "status_page_required": "სტატუსის გვერდი სავალდებულოა",
+      "style_label": "სტილი",
+      "title_label": "სათაური",
+      "title_placeholder": "ინციდენტის სათაური",
+      "title_required": "სათაური სავალდებულოა"
+    },
+    "no_incidents": "ინციდენტები არ არის",
+    "resolve": "მოგვარება",
+    "resolved": "მოგვარებული",
+    "resolved_success": "ინციდენტი წარმატებით მოგვარდა",
+    "style": {
+      "danger": "საშიშროება",
+      "info": "ინფორმაცია",
+      "warning": "გაფრთხილება"
+    },
+    "title": "ინციდენტები",
+    "updated_success": "ინციდენტი წარმატებით განახლდა"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "ინციდენტები",
     "maintenance": "შენარჩუნება",
     "monitors": "მონიტორები",
     "notification_channels": "შეტყობინების არხები",
@@ -1230,6 +1264,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "აქტიური ინციდენტები",
+      "history_title": "ინციდენტების ისტორია",
+      "no_active": "აქტიური ინციდენტები არ არის",
+      "no_history": "ინციდენტების ისტორია არ არის",
+      "resolved": "მოგვარებული"
+    },
     "messages": {
       "all_systems_operational": "ყველა სისტემა მუშაობს",
       "down": "გათიშულია",

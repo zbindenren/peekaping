@@ -115,6 +115,39 @@
       "passwords_mismatch": "Kata sandi tidak cocok"
     }
   },
+  "incidents": {
+    "active": "Aktif",
+    "confirm_delete": "Ini akan menghapus insiden ini secara permanen.",
+    "confirm_resolve": "Ini akan menandai insiden sebagai terselesaikan.",
+    "create": "Buat Insiden",
+    "created_success": "Insiden berhasil dibuat",
+    "delete": "Hapus Insiden",
+    "deleted_success": "Insiden berhasil dihapus",
+    "edit": "Edit Insiden",
+    "form": {
+      "content_label": "Konten",
+      "content_placeholder": "Jelaskan insiden...",
+      "markdown_supported": "Markdown didukung",
+      "select_status_page": "Pilih halaman status...",
+      "status_page_label": "Halaman Status",
+      "status_page_required": "Halaman status wajib diisi",
+      "style_label": "Gaya",
+      "title_label": "Judul",
+      "title_placeholder": "Judul insiden",
+      "title_required": "Judul wajib diisi"
+    },
+    "no_incidents": "Tidak ada insiden",
+    "resolve": "Selesaikan",
+    "resolved": "Terselesaikan",
+    "resolved_success": "Insiden berhasil diselesaikan",
+    "style": {
+      "danger": "Bahaya",
+      "info": "Info",
+      "warning": "Peringatan"
+    },
+    "title": "Insiden",
+    "updated_success": "Insiden berhasil diperbarui"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Insiden",
     "maintenance": "Pemeliharaan",
     "monitors": "Pengawasan",
     "notification_channels": "Saluran Pemberitahuan",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Insiden Aktif",
+      "history_title": "Riwayat Insiden",
+      "no_active": "Tidak ada insiden aktif",
+      "no_history": "Tidak ada riwayat insiden",
+      "resolved": "Terselesaikan"
+    },
     "messages": {
       "all_systems_operational": "Semua Sistem Beroperasi",
       "down": "Tidak tersedia",

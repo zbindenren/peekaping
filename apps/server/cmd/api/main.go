@@ -18,6 +18,7 @@ import (
 	"peekaping/internal/modules/cleanup"
 	"peekaping/internal/modules/domain_status_page"
 	"peekaping/internal/modules/events"
+	"peekaping/internal/modules/incident"
 	"peekaping/internal/modules/healthcheck"
 	"peekaping/internal/modules/heartbeat"
 	"peekaping/internal/modules/maintenance"
@@ -117,6 +118,7 @@ func main() {
 	status_page.RegisterDependencies(container, internalCfg)
 	monitor_status_page.RegisterDependencies(container, internalCfg)
 	domain_status_page.RegisterDependencies(container, internalCfg)
+	incident.RegisterDependencies(container, internalCfg)
 	tag.RegisterDependencies(container, internalCfg)
 	monitor_tag.RegisterDependencies(container, internalCfg)
 	badge.RegisterDependencies(container, internalCfg)

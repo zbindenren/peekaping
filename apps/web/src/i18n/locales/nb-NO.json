@@ -115,6 +115,39 @@
       "passwords_mismatch": "Passordene stemmer ikke"
     }
   },
+  "incidents": {
+    "active": "Aktiv",
+    "confirm_delete": "Dette vil permanent slette denne hendelsen.",
+    "confirm_resolve": "Dette vil merke hendelsen som løst.",
+    "create": "Opprett hendelse",
+    "created_success": "Hendelse opprettet",
+    "delete": "Slett hendelse",
+    "deleted_success": "Hendelse slettet",
+    "edit": "Rediger hendelse",
+    "form": {
+      "content_label": "Innhold",
+      "content_placeholder": "Beskriv hendelsen...",
+      "markdown_supported": "Markdown støttes",
+      "select_status_page": "Velg en statusside...",
+      "status_page_label": "Statusside",
+      "status_page_required": "Statusside er påkrevd",
+      "style_label": "Stil",
+      "title_label": "Tittel",
+      "title_placeholder": "Hendelsestittel",
+      "title_required": "Tittel er påkrevd"
+    },
+    "no_incidents": "Ingen hendelser",
+    "resolve": "Løs",
+    "resolved": "Løst",
+    "resolved_success": "Hendelse løst",
+    "style": {
+      "danger": "Fare",
+      "info": "Info",
+      "warning": "Advarsel"
+    },
+    "title": "Hendelser",
+    "updated_success": "Hendelse oppdatert"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Hendelser",
     "maintenance": "Vedlikehold",
     "monitors": "Overvåkninger",
     "notification_channels": "Varslingskanaler",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Aktive hendelser",
+      "history_title": "Hendelseshistorikk",
+      "no_active": "Ingen aktive hendelser",
+      "no_history": "Ingen hendelseshistorikk",
+      "resolved": "Løst"
+    },
     "messages": {
       "all_systems_operational": "Alle systemer er operative",
       "down": "Ned",

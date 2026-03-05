@@ -115,6 +115,39 @@
       "passwords_mismatch": "Pasahitzak ez datoz bat"
     }
   },
+  "incidents": {
+    "active": "Aktiboa",
+    "confirm_delete": "Honek gertaera betirako ezabatuko du.",
+    "confirm_resolve": "Honek gertaera konponduta gisa markatuko du.",
+    "create": "Gertaera sortu",
+    "created_success": "Gertaera arrakastaz sortua",
+    "delete": "Gertaera ezabatu",
+    "deleted_success": "Gertaera arrakastaz ezabatua",
+    "edit": "Gertaera editatu",
+    "form": {
+      "content_label": "Edukia",
+      "content_placeholder": "Deskribatu gertaera...",
+      "markdown_supported": "Markdown onartzen da",
+      "select_status_page": "Hautatu egoera-orri bat...",
+      "status_page_label": "Egoera-orria",
+      "status_page_required": "Egoera-orria beharrezkoa da",
+      "style_label": "Estiloa",
+      "title_label": "Izenburua",
+      "title_placeholder": "Gertaeraren izenburua",
+      "title_required": "Izenburua beharrezkoa da"
+    },
+    "no_incidents": "Ez dago gertaerarik",
+    "resolve": "Konpondu",
+    "resolved": "Konpondua",
+    "resolved_success": "Gertaera arrakastaz konpondua",
+    "style": {
+      "danger": "Arriskua",
+      "info": "Informazioa",
+      "warning": "Abisua"
+    },
+    "title": "Gertaerak",
+    "updated_success": "Gertaera arrakastaz eguneratua"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Gertaerak",
     "maintenance": "Mantentzea",
     "monitors": "Monitoreak",
     "notification_channels": "Joparpen kanalak",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Gertaera aktiboak",
+      "history_title": "Gertaeren historia",
+      "no_active": "Ez dago gertaera aktiborik",
+      "no_history": "Ez dago gertaera historiarik",
+      "resolved": "Konpondua"
+    },
     "messages": {
       "all_systems_operational": "Sistema guztiak funtzionatzen",
       "down": "Behera",

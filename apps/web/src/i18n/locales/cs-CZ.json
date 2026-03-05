@@ -115,6 +115,39 @@
       "passwords_mismatch": "Hesla se neshodují"
     }
   },
+  "incidents": {
+    "active": "Aktivní",
+    "confirm_delete": "Toto trvale smaže tento incident.",
+    "confirm_resolve": "Toto označí incident jako vyřešený.",
+    "create": "Vytvořit incident",
+    "created_success": "Incident byl úspěšně vytvořen",
+    "delete": "Smazat incident",
+    "deleted_success": "Incident byl úspěšně smazán",
+    "edit": "Upravit incident",
+    "form": {
+      "content_label": "Obsah",
+      "content_placeholder": "Popište incident...",
+      "markdown_supported": "Markdown je podporován",
+      "select_status_page": "Vyberte stavovou stránku...",
+      "status_page_label": "Stavová stránka",
+      "status_page_required": "Stavová stránka je povinná",
+      "style_label": "Styl",
+      "title_label": "Název",
+      "title_placeholder": "Název incidentu",
+      "title_required": "Název je povinný"
+    },
+    "no_incidents": "Žádné incidenty",
+    "resolve": "Vyřešit",
+    "resolved": "Vyřešeno",
+    "resolved_success": "Incident byl úspěšně vyřešen",
+    "style": {
+      "danger": "Nebezpečí",
+      "info": "Informace",
+      "warning": "Varování"
+    },
+    "title": "Incidenty",
+    "updated_success": "Incident byl úspěšně aktualizován"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Incidenty",
     "maintenance": "Údržba",
     "monitors": "Monitory",
     "notification_channels": "Notifikační kanály",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Aktivní incidenty",
+      "history_title": "Historie incidentů",
+      "no_active": "Žádné aktivní incidenty",
+      "no_history": "Žádná historie incidentů",
+      "resolved": "Vyřešeno"
+    },
     "messages": {
       "all_systems_operational": "Všechny systémy jsou v provozu",
       "down": "Nedostupný",

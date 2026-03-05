@@ -115,6 +115,39 @@
       "passwords_mismatch": "Паролите не съвпадат"
     }
   },
+  "incidents": {
+    "active": "Активен",
+    "confirm_delete": "Това ще изтрие окончателно този инцидент.",
+    "confirm_resolve": "Това ще маркира инцидента като разрешен.",
+    "create": "Създаване на инцидент",
+    "created_success": "Инцидентът е създаден успешно",
+    "delete": "Изтриване на инцидент",
+    "deleted_success": "Инцидентът е изтрит успешно",
+    "edit": "Редактиране на инцидент",
+    "form": {
+      "content_label": "Съдържание",
+      "content_placeholder": "Опишете инцидента...",
+      "markdown_supported": "Markdown се поддържа",
+      "select_status_page": "Изберете страница за състояние...",
+      "status_page_label": "Страница за състояние",
+      "status_page_required": "Страницата за състояние е задължителна",
+      "style_label": "Стил",
+      "title_label": "Заглавие",
+      "title_placeholder": "Заглавие на инцидента",
+      "title_required": "Заглавието е задължително"
+    },
+    "no_incidents": "Няма инциденти",
+    "resolve": "Разреши",
+    "resolved": "Разрешен",
+    "resolved_success": "Инцидентът е разрешен успешно",
+    "style": {
+      "danger": "Опасност",
+      "info": "Информация",
+      "warning": "Предупреждение"
+    },
+    "title": "Инциденти",
+    "updated_success": "Инцидентът е актуализиран успешно"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Инциденти",
     "maintenance": "Поддръжка",
     "monitors": "Монитори",
     "notification_channels": "Канали за известия",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Активни инциденти",
+      "history_title": "История на инцидентите",
+      "no_active": "Няма активни инциденти",
+      "no_history": "Няма история на инциденти",
+      "resolved": "Разрешен"
+    },
     "messages": {
       "all_systems_operational": "Всички системи са в експлоатация",
       "down": "Недостъпно",

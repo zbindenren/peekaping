@@ -115,6 +115,39 @@
       "passwords_mismatch": "Mật khẩu không khớp"
     }
   },
+  "incidents": {
+    "active": "Đang hoạt động",
+    "confirm_delete": "Hành động này sẽ xóa vĩnh viễn sự cố này.",
+    "confirm_resolve": "Hành động này sẽ đánh dấu sự cố là đã giải quyết.",
+    "create": "Tạo sự cố",
+    "created_success": "Tạo sự cố thành công",
+    "delete": "Xóa sự cố",
+    "deleted_success": "Xóa sự cố thành công",
+    "edit": "Sửa sự cố",
+    "form": {
+      "content_label": "Nội dung",
+      "content_placeholder": "Mô tả sự cố...",
+      "markdown_supported": "Hỗ trợ Markdown",
+      "select_status_page": "Chọn trang trạng thái...",
+      "status_page_label": "Trang trạng thái",
+      "status_page_required": "Trang trạng thái là bắt buộc",
+      "style_label": "Kiểu",
+      "title_label": "Tiêu đề",
+      "title_placeholder": "Tiêu đề sự cố",
+      "title_required": "Tiêu đề là bắt buộc"
+    },
+    "no_incidents": "Không có sự cố",
+    "resolve": "Giải quyết",
+    "resolved": "Đã giải quyết",
+    "resolved_success": "Giải quyết sự cố thành công",
+    "style": {
+      "danger": "Nguy hiểm",
+      "info": "Thông tin",
+      "warning": "Cảnh báo"
+    },
+    "title": "Sự cố",
+    "updated_success": "Cập nhật sự cố thành công"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Sự cố",
     "maintenance": "Bảo trì",
     "monitors": "Giám sát",
     "notification_channels": "Kênh thông báo",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Sự cố đang hoạt động",
+      "history_title": "Lịch sử sự cố",
+      "no_active": "Không có sự cố đang hoạt động",
+      "no_history": "Không có lịch sử sự cố",
+      "resolved": "Đã giải quyết"
+    },
     "messages": {
       "all_systems_operational": "Tất cả hệ thống hoạt động",
       "down": "Dừng",

@@ -115,6 +115,39 @@
       "passwords_mismatch": "密碼不一致"
     }
   },
+  "incidents": {
+    "active": "活躍",
+    "confirm_delete": "此操作將永久刪除此事件。",
+    "confirm_resolve": "此操作將把事件標記為已解決。",
+    "create": "建立事件",
+    "created_success": "事件建立成功",
+    "delete": "刪除事件",
+    "deleted_success": "事件刪除成功",
+    "edit": "編輯事件",
+    "form": {
+      "content_label": "內容",
+      "content_placeholder": "描述事件...",
+      "markdown_supported": "支援 Markdown",
+      "select_status_page": "選擇狀態頁面...",
+      "status_page_label": "狀態頁面",
+      "status_page_required": "狀態頁面為必填項",
+      "style_label": "樣式",
+      "title_label": "標題",
+      "title_placeholder": "事件標題",
+      "title_required": "標題為必填項"
+    },
+    "no_incidents": "暫無事件",
+    "resolve": "解決",
+    "resolved": "已解決",
+    "resolved_success": "事件解決成功",
+    "style": {
+      "danger": "危險",
+      "info": "資訊",
+      "warning": "警告"
+    },
+    "title": "事件",
+    "updated_success": "事件更新成功"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "事件",
     "maintenance": "維護",
     "monitors": "監控",
     "notification_channels": "通知頻道",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "活躍事件",
+      "history_title": "事件歷史",
+      "no_active": "暫無活躍事件",
+      "no_history": "暫無事件歷史",
+      "resolved": "已解決"
+    },
     "messages": {
       "all_systems_operational": "所有系統運作正常",
       "down": "離線",

@@ -115,6 +115,39 @@
       "passwords_mismatch": "密码不匹配"
     }
   },
+  "incidents": {
+    "active": "活跃",
+    "confirm_delete": "此操作将永久删除该事件。",
+    "confirm_resolve": "此操作将把事件标记为已解决。",
+    "create": "创建事件",
+    "created_success": "事件创建成功",
+    "delete": "删除事件",
+    "deleted_success": "事件删除成功",
+    "edit": "编辑事件",
+    "form": {
+      "content_label": "内容",
+      "content_placeholder": "描述事件...",
+      "markdown_supported": "支持 Markdown",
+      "select_status_page": "选择状态页...",
+      "status_page_label": "状态页",
+      "status_page_required": "状态页为必填项",
+      "style_label": "样式",
+      "title_label": "标题",
+      "title_placeholder": "事件标题",
+      "title_required": "标题为必填项"
+    },
+    "no_incidents": "暂无事件",
+    "resolve": "解决",
+    "resolved": "已解决",
+    "resolved_success": "事件解决成功",
+    "style": {
+      "danger": "危险",
+      "info": "信息",
+      "warning": "警告"
+    },
+    "title": "事件",
+    "updated_success": "事件更新成功"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "事件",
     "maintenance": "维护",
     "monitors": "监控",
     "notification_channels": "通知渠道",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "活跃事件",
+      "history_title": "事件历史",
+      "no_active": "暂无活跃事件",
+      "no_history": "暂无事件历史",
+      "resolved": "已解决"
+    },
     "messages": {
       "all_systems_operational": "全部系统正常",
       "down": "已停止",

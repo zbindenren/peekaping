@@ -115,6 +115,39 @@
       "passwords_mismatch": "گذرواژه‌ها مطابقت ندارند"
     }
   },
+  "incidents": {
+    "active": "فعال",
+    "confirm_delete": "این رویداد برای همیشه حذف خواهد شد.",
+    "confirm_resolve": "این رویداد به عنوان حل‌شده علامت‌گذاری خواهد شد.",
+    "create": "ایجاد رویداد",
+    "created_success": "رویداد با موفقیت ایجاد شد",
+    "delete": "حذف رویداد",
+    "deleted_success": "رویداد با موفقیت حذف شد",
+    "edit": "ویرایش رویداد",
+    "form": {
+      "content_label": "محتوا",
+      "content_placeholder": "رویداد را توصیف کنید...",
+      "markdown_supported": "Markdown پشتیبانی می‌شود",
+      "select_status_page": "یک صفحه وضعیت انتخاب کنید...",
+      "status_page_label": "صفحه وضعیت",
+      "status_page_required": "صفحه وضعیت الزامی است",
+      "style_label": "سبک",
+      "title_label": "عنوان",
+      "title_placeholder": "عنوان رویداد",
+      "title_required": "عنوان الزامی است"
+    },
+    "no_incidents": "رویدادی وجود ندارد",
+    "resolve": "حل کردن",
+    "resolved": "حل‌شده",
+    "resolved_success": "رویداد با موفقیت حل شد",
+    "style": {
+      "danger": "خطر",
+      "info": "اطلاعات",
+      "warning": "هشدار"
+    },
+    "title": "رویدادها",
+    "updated_success": "رویداد با موفقیت به‌روزرسانی شد"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "رویدادها",
     "maintenance": "نگهداری",
     "monitors": "نظارت‌ها",
     "notification_channels": "کانال‌های اعلان",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "رویدادهای فعال",
+      "history_title": "تاریخچه رویدادها",
+      "no_active": "رویداد فعالی وجود ندارد",
+      "no_history": "تاریخچه رویدادی وجود ندارد",
+      "resolved": "حل‌شده"
+    },
     "messages": {
       "all_systems_operational": "تمام سیستم‌ها در وضعیت عملیاتی",
       "down": "متوقف",

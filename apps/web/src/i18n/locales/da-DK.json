@@ -115,6 +115,39 @@
       "passwords_mismatch": "Adgangskoder matcher ikke"
     }
   },
+  "incidents": {
+    "active": "Aktiv",
+    "confirm_delete": "Dette vil permanent slette denne hændelse.",
+    "confirm_resolve": "Dette vil markere hændelsen som løst.",
+    "create": "Opret hændelse",
+    "created_success": "Hændelse oprettet",
+    "delete": "Slet hændelse",
+    "deleted_success": "Hændelse slettet",
+    "edit": "Rediger hændelse",
+    "form": {
+      "content_label": "Indhold",
+      "content_placeholder": "Beskriv hændelsen...",
+      "markdown_supported": "Markdown understøttes",
+      "select_status_page": "Vælg en statusside...",
+      "status_page_label": "Statusside",
+      "status_page_required": "Statusside er påkrævet",
+      "style_label": "Stil",
+      "title_label": "Titel",
+      "title_placeholder": "Hændelsestitel",
+      "title_required": "Titel er påkrævet"
+    },
+    "no_incidents": "Ingen hændelser",
+    "resolve": "Løs",
+    "resolved": "Løst",
+    "resolved_success": "Hændelse løst",
+    "style": {
+      "danger": "Fare",
+      "info": "Info",
+      "warning": "Advarsel"
+    },
+    "title": "Hændelser",
+    "updated_success": "Hændelse opdateret"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Hændelser",
     "maintenance": "Vedligeholdelse",
     "monitors": "Monitorer",
     "notification_channels": "Notifikationskanaler",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Aktive hændelser",
+      "history_title": "Hændelseshistorik",
+      "no_active": "Ingen aktive hændelser",
+      "no_history": "Ingen hændelseshistorik",
+      "resolved": "Løst"
+    },
     "messages": {
       "all_systems_operational": "Alle systemer er operative",
       "down": "Nede",

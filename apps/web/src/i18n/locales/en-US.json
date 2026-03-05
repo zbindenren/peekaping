@@ -632,7 +632,41 @@
       }
     }
   },
+  "incidents": {
+    "active": "Active",
+    "confirm_delete": "This will permanently delete this incident.",
+    "confirm_resolve": "This will mark the incident as resolved.",
+    "create": "Create Incident",
+    "created_success": "Incident created successfully",
+    "delete": "Delete Incident",
+    "deleted_success": "Incident deleted successfully",
+    "edit": "Edit Incident",
+    "form": {
+      "content_label": "Content",
+      "content_placeholder": "Describe the incident...",
+      "markdown_supported": "Markdown is supported",
+      "select_status_page": "Select a status page...",
+      "status_page_label": "Status Page",
+      "status_page_required": "Status page is required",
+      "style_label": "Style",
+      "title_label": "Title",
+      "title_placeholder": "Incident title",
+      "title_required": "Title is required"
+    },
+    "no_incidents": "No incidents",
+    "resolve": "Resolve",
+    "resolved": "Resolved",
+    "resolved_success": "Incident resolved successfully",
+    "style": {
+      "danger": "Danger",
+      "info": "Info",
+      "warning": "Warning"
+    },
+    "title": "Incidents",
+    "updated_success": "Incident updated successfully"
+  },
   "navigation": {
+    "incidents": "Incidents",
     "maintenance": "Maintenance",
     "monitors": "Monitors",
     "notification_channels": "Notification Channels",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Active Incidents",
+      "history_title": "Incident History",
+      "no_active": "No active incidents",
+      "no_history": "No incident history",
+      "resolved": "Resolved"
+    },
     "messages": {
       "all_systems_operational": "All Systems Operational",
       "down": "Down",

@@ -115,6 +115,39 @@
       "passwords_mismatch": "Hasła się nie zgadzają"
     }
   },
+  "incidents": {
+    "active": "Aktywny",
+    "confirm_delete": "To trwale usunie ten incydent.",
+    "confirm_resolve": "To oznaczy incydent jako rozwiązany.",
+    "create": "Utwórz incydent",
+    "created_success": "Incydent został pomyślnie utworzony",
+    "delete": "Usuń incydent",
+    "deleted_success": "Incydent został pomyślnie usunięty",
+    "edit": "Edytuj incydent",
+    "form": {
+      "content_label": "Treść",
+      "content_placeholder": "Opisz incydent...",
+      "markdown_supported": "Markdown jest obsługiwany",
+      "select_status_page": "Wybierz stronę statusu...",
+      "status_page_label": "Strona statusu",
+      "status_page_required": "Strona statusu jest wymagana",
+      "style_label": "Styl",
+      "title_label": "Tytuł",
+      "title_placeholder": "Tytuł incydentu",
+      "title_required": "Tytuł jest wymagany"
+    },
+    "no_incidents": "Brak incydentów",
+    "resolve": "Rozwiąż",
+    "resolved": "Rozwiązany",
+    "resolved_success": "Incydent został pomyślnie rozwiązany",
+    "style": {
+      "danger": "Niebezpieczeństwo",
+      "info": "Informacja",
+      "warning": "Ostrzeżenie"
+    },
+    "title": "Incydenty",
+    "updated_success": "Incydent został pomyślnie zaktualizowany"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Incydenty",
     "maintenance": "Utrzymanie",
     "monitors": "Monitory",
     "notification_channels": "Kanały powiadomień",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Aktywne incydenty",
+      "history_title": "Historia incydentów",
+      "no_active": "Brak aktywnych incydentów",
+      "no_history": "Brak historii incydentów",
+      "resolved": "Rozwiązany"
+    },
     "messages": {
       "all_systems_operational": "Wszystkie systemy działają",
       "down": "Niedostępny",

@@ -9,6 +9,7 @@ import (
 	"peekaping/internal/modules/badge"
 	"peekaping/internal/modules/healthcheck"
 	"peekaping/internal/modules/heartbeat"
+	"peekaping/internal/modules/incident"
 	"peekaping/internal/modules/maintenance"
 	"peekaping/internal/modules/monitor"
 	"peekaping/internal/modules/notification_channel"
@@ -70,6 +71,8 @@ func ProvideServer(
 	heartbeatService heartbeat.Service,
 	monitorService monitor.Service,
 	queueService queue.Service,
+	incidentRoute *incident.Route,
+	incidentController *incident.Controller,
 	maintenanceRoute *maintenance.Route,
 	maintenanceController *maintenance.Controller,
 	statusPageRoute *status_page.Route,
@@ -117,6 +120,7 @@ func ProvideServer(
 	notificationChannelRoute.ConnectRoute(router, notificationChannelController)
 	proxyRoute.ConnectRoute(router, proxyController)
 	settingRoute.ConnectRoute(router, settingController)
+	incidentRoute.ConnectRoute(router, incidentController)
 	maintenanceRoute.ConnectRoute(router, maintenanceController)
 	statusPageRoute.ConnectRoute(router, statusPageController)
 	tagRoute.ConnectRoute(router, tagController)

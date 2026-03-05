@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"peekaping/internal/modules/domain_status_page"
 	"peekaping/internal/modules/events"
+	"peekaping/internal/modules/incident"
 	"peekaping/internal/modules/monitor_status_page"
 
 	"go.uber.org/zap"
@@ -25,9 +26,10 @@ type Service interface {
 
 type ServiceImpl struct {
 	repository               Repository
-	eventBus events.EventBus
+	eventBus                 events.EventBus
 	monitorStatusPageService monitor_status_page.Service
 	domainStatusPageService  domain_status_page.Service
+	incidentService          incident.Service
 	logger                   *zap.SugaredLogger
 }
 
@@ -36,6 +38,7 @@ func NewService(
 	eventBus events.EventBus,
 	monitorStatusPageService monitor_status_page.Service,
 	domainStatusPageService domain_status_page.Service,
+	incidentService incident.Service,
 	logger *zap.SugaredLogger,
 ) Service {
 	return &ServiceImpl{
@@ -43,6 +46,7 @@ func NewService(
 		eventBus:                 eventBus,
 		monitorStatusPageService: monitorStatusPageService,
 		domainStatusPageService:  domainStatusPageService,
+		incidentService:          incidentService,
 		logger:                   logger.Named("[status-page-service]"),
 	}
 }
@@ -319,8 +323,10 @@ func (s *ServiceImpl) Update(ctx context.Context, id string, dto *UpdateStatusPa
 }
 
 func (s *ServiceImpl) Delete(ctx context.Context, id string) error {
-	err := s.repository.Delete(ctx, id)
+	// delete children before parent to prevent orphaned records on MongoDB
+	err := s.incidentService.DeleteByStatusPageID(ctx, id)
 	if err != nil {
+		s.logger.Errorw("Failed to delete incidents for status page", "error", err, "statusPageID", id)
 		return err
 	}
 
@@ -330,7 +336,13 @@ func (s *ServiceImpl) Delete(ctx context.Context, id string) error {
 		return err
 	}
 
-	return nil
+	err = s.domainStatusPageService.DeleteAllDomainsForStatusPage(ctx, id)
+	if err != nil {
+		s.logger.Errorw("Failed to delete all domains for status page", "error", err, "statusPageID", id)
+		return err
+	}
+
+	return s.repository.Delete(ctx, id)
 }
 
 func (s *ServiceImpl) GetMonitorsForStatusPage(ctx context.Context, statusPageID string) ([]*monitor_status_page.Model, error) {

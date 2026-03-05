@@ -115,6 +115,39 @@
       "passwords_mismatch": "Parolele nu se potrivesc"
     }
   },
+  "incidents": {
+    "active": "Activ",
+    "confirm_delete": "Aceasta va șterge permanent acest incident.",
+    "confirm_resolve": "Aceasta va marca incidentul ca rezolvat.",
+    "create": "Creează incident",
+    "created_success": "Incident creat cu succes",
+    "delete": "Șterge incident",
+    "deleted_success": "Incident șters cu succes",
+    "edit": "Editează incident",
+    "form": {
+      "content_label": "Conținut",
+      "content_placeholder": "Descrieți incidentul...",
+      "markdown_supported": "Markdown este acceptat",
+      "select_status_page": "Selectați o pagină de stare...",
+      "status_page_label": "Pagina de stare",
+      "status_page_required": "Pagina de stare este obligatorie",
+      "style_label": "Stil",
+      "title_label": "Titlu",
+      "title_placeholder": "Titlul incidentului",
+      "title_required": "Titlul este obligatoriu"
+    },
+    "no_incidents": "Niciun incident",
+    "resolve": "Rezolvă",
+    "resolved": "Rezolvat",
+    "resolved_success": "Incident rezolvat cu succes",
+    "style": {
+      "danger": "Pericol",
+      "info": "Informație",
+      "warning": "Avertisment"
+    },
+    "title": "Incidente",
+    "updated_success": "Incident actualizat cu succes"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Incidente",
     "maintenance": "Întreținere",
     "monitors": "Monitoare",
     "notification_channels": "Canale de notificare",
@@ -1230,6 +1264,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Incidente active",
+      "history_title": "Istoric incidente",
+      "no_active": "Niciun incident activ",
+      "no_history": "Niciun istoric de incidente",
+      "resolved": "Rezolvat"
+    },
     "messages": {
       "all_systems_operational": "Toate sistemele sunt operaționale",
       "down": "Nefuncțional",

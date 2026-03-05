@@ -115,6 +115,39 @@
       "passwords_mismatch": "Wachtwoorden komen niet overeen"
     }
   },
+  "incidents": {
+    "active": "Actief",
+    "confirm_delete": "Dit zal dit incident permanent verwijderen.",
+    "confirm_resolve": "Dit zal het incident als opgelost markeren.",
+    "create": "Incident aanmaken",
+    "created_success": "Incident succesvol aangemaakt",
+    "delete": "Incident verwijderen",
+    "deleted_success": "Incident succesvol verwijderd",
+    "edit": "Incident bewerken",
+    "form": {
+      "content_label": "Inhoud",
+      "content_placeholder": "Beschrijf het incident...",
+      "markdown_supported": "Markdown wordt ondersteund",
+      "select_status_page": "Selecteer een statuspagina...",
+      "status_page_label": "Statuspagina",
+      "status_page_required": "Statuspagina is verplicht",
+      "style_label": "Stijl",
+      "title_label": "Titel",
+      "title_placeholder": "Titel van het incident",
+      "title_required": "Titel is verplicht"
+    },
+    "no_incidents": "Geen incidenten",
+    "resolve": "Oplossen",
+    "resolved": "Opgelost",
+    "resolved_success": "Incident succesvol opgelost",
+    "style": {
+      "danger": "Gevaar",
+      "info": "Info",
+      "warning": "Waarschuwing"
+    },
+    "title": "Incidenten",
+    "updated_success": "Incident succesvol bijgewerkt"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Incidenten",
     "maintenance": "Onderhoud",
     "monitors": "Monitoren",
     "notification_channels": "Notificatiekanalen",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Actieve incidenten",
+      "history_title": "Incidentgeschiedenis",
+      "no_active": "Geen actieve incidenten",
+      "no_history": "Geen incidentgeschiedenis",
+      "resolved": "Opgelost"
+    },
     "messages": {
       "all_systems_operational": "Alle systemen operationeel",
       "down": "Uitgevallen",

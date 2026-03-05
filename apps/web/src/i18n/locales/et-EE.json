@@ -115,6 +115,39 @@
       "passwords_mismatch": "Paroolid ei ühti"
     }
   },
+  "incidents": {
+    "active": "Aktiivne",
+    "confirm_delete": "See kustutab selle intsidendi jäädavalt.",
+    "confirm_resolve": "See märgib intsidendi lahendatuks.",
+    "create": "Loo intsident",
+    "created_success": "Intsident edukalt loodud",
+    "delete": "Kustuta intsident",
+    "deleted_success": "Intsident edukalt kustutatud",
+    "edit": "Muuda intsidenti",
+    "form": {
+      "content_label": "Sisu",
+      "content_placeholder": "Kirjeldage intsidenti...",
+      "markdown_supported": "Markdown on toetatud",
+      "select_status_page": "Valige olekuleht...",
+      "status_page_label": "Olekuleht",
+      "status_page_required": "Olekuleht on kohustuslik",
+      "style_label": "Stiil",
+      "title_label": "Pealkiri",
+      "title_placeholder": "Intsidendi pealkiri",
+      "title_required": "Pealkiri on kohustuslik"
+    },
+    "no_incidents": "Intsidente pole",
+    "resolve": "Lahenda",
+    "resolved": "Lahendatud",
+    "resolved_success": "Intsident edukalt lahendatud",
+    "style": {
+      "danger": "Oht",
+      "info": "Info",
+      "warning": "Hoiatus"
+    },
+    "title": "Intsidendid",
+    "updated_success": "Intsident edukalt uuendatud"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Intsidendid",
     "maintenance": "Hooldus",
     "monitors": "Monitoorid",
     "notification_channels": "Teavituskanalid",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Aktiivsed intsidendid",
+      "history_title": "Intsidentide ajalugu",
+      "no_active": "Aktiivseid intsidente pole",
+      "no_history": "Intsidentide ajalugu puudub",
+      "resolved": "Lahendatud"
+    },
     "messages": {
       "all_systems_operational": "Kõik süsteemid toimivad",
       "down": "Alla",

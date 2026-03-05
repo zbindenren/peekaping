@@ -115,6 +115,39 @@
       "passwords_mismatch": "비밀번호가 일치하지 않습니다"
     }
   },
+  "incidents": {
+    "active": "활성",
+    "confirm_delete": "이 인시던트가 영구적으로 삭제됩니다.",
+    "confirm_resolve": "이 인시던트를 해결됨으로 표시합니다.",
+    "create": "인시던트 생성",
+    "created_success": "인시던트가 성공적으로 생성되었습니다",
+    "delete": "인시던트 삭제",
+    "deleted_success": "인시던트가 성공적으로 삭제되었습니다",
+    "edit": "인시던트 편집",
+    "form": {
+      "content_label": "내용",
+      "content_placeholder": "인시던트를 설명하세요...",
+      "markdown_supported": "Markdown이 지원됩니다",
+      "select_status_page": "상태 페이지 선택...",
+      "status_page_label": "상태 페이지",
+      "status_page_required": "상태 페이지는 필수입니다",
+      "style_label": "스타일",
+      "title_label": "제목",
+      "title_placeholder": "인시던트 제목",
+      "title_required": "제목은 필수입니다"
+    },
+    "no_incidents": "인시던트 없음",
+    "resolve": "해결",
+    "resolved": "해결됨",
+    "resolved_success": "인시던트가 성공적으로 해결되었습니다",
+    "style": {
+      "danger": "위험",
+      "info": "정보",
+      "warning": "경고"
+    },
+    "title": "인시던트",
+    "updated_success": "인시던트가 성공적으로 업데이트되었습니다"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "인시던트",
     "maintenance": "유지보수",
     "monitors": "모니터",
     "notification_channels": "알림 채널",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "활성 인시던트",
+      "history_title": "인시던트 이력",
+      "no_active": "활성 인시던트 없음",
+      "no_history": "인시던트 이력 없음",
+      "resolved": "해결됨"
+    },
     "messages": {
       "all_systems_operational": "모든 시스템 가동 중",
       "down": "다운",

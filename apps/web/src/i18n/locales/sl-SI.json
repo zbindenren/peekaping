@@ -115,6 +115,39 @@
       "passwords_mismatch": "Gesla se ne ujemata"
     }
   },
+  "incidents": {
+    "active": "Aktiven",
+    "confirm_delete": "To bo trajno izbrisalo ta incident.",
+    "confirm_resolve": "To bo označilo incident kot razrešen.",
+    "create": "Ustvari incident",
+    "created_success": "Incident uspešno ustvarjen",
+    "delete": "Izbriši incident",
+    "deleted_success": "Incident uspešno izbrisan",
+    "edit": "Uredi incident",
+    "form": {
+      "content_label": "Vsebina",
+      "content_placeholder": "Opišite incident...",
+      "markdown_supported": "Markdown je podprt",
+      "select_status_page": "Izberite stran stanja...",
+      "status_page_label": "Stran stanja",
+      "status_page_required": "Stran stanja je obvezna",
+      "style_label": "Slog",
+      "title_label": "Naslov",
+      "title_placeholder": "Naslov incidenta",
+      "title_required": "Naslov je obvezen"
+    },
+    "no_incidents": "Ni incidentov",
+    "resolve": "Razreši",
+    "resolved": "Razrešen",
+    "resolved_success": "Incident uspešno razrešen",
+    "style": {
+      "danger": "Nevarnost",
+      "info": "Informacija",
+      "warning": "Opozorilo"
+    },
+    "title": "Incidenti",
+    "updated_success": "Incident uspešno posodobljen"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Incidenti",
     "maintenance": "Vzdrževanje",
     "monitors": "Nadzori",
     "notification_channels": "Kanali obvestil",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Aktivni incidenti",
+      "history_title": "Zgodovina incidentov",
+      "no_active": "Ni aktivnih incidentov",
+      "no_history": "Ni zgodovine incidentov",
+      "resolved": "Razrešen"
+    },
     "messages": {
       "all_systems_operational": "Vsi sistemi delujejo",
       "down": "Spodaj",

@@ -115,6 +115,39 @@
       "passwords_mismatch": "Parolalar eşleşmiyor"
     }
   },
+  "incidents": {
+    "active": "Aktif",
+    "confirm_delete": "Bu olay kalıcı olarak silinecektir.",
+    "confirm_resolve": "Bu olay çözüldü olarak işaretlenecektir.",
+    "create": "Olay Oluştur",
+    "created_success": "Olay başarıyla oluşturuldu",
+    "delete": "Olayı Sil",
+    "deleted_success": "Olay başarıyla silindi",
+    "edit": "Olayı Düzenle",
+    "form": {
+      "content_label": "İçerik",
+      "content_placeholder": "Olayı açıklayın...",
+      "markdown_supported": "Markdown desteklenir",
+      "select_status_page": "Durum sayfası seçin...",
+      "status_page_label": "Durum Sayfası",
+      "status_page_required": "Durum sayfası zorunludur",
+      "style_label": "Stil",
+      "title_label": "Başlık",
+      "title_placeholder": "Olay başlığı",
+      "title_required": "Başlık zorunludur"
+    },
+    "no_incidents": "Olay yok",
+    "resolve": "Çöz",
+    "resolved": "Çözüldü",
+    "resolved_success": "Olay başarıyla çözüldü",
+    "style": {
+      "danger": "Tehlike",
+      "info": "Bilgi",
+      "warning": "Uyarı"
+    },
+    "title": "Olaylar",
+    "updated_success": "Olay başarıyla güncellendi"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Olaylar",
     "maintenance": "Bakım",
     "monitors": "Monitörler",
     "notification_channels": "Bildirim Kanalları",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Aktif Olaylar",
+      "history_title": "Olay Geçmişi",
+      "no_active": "Aktif olay yok",
+      "no_history": "Olay geçmişi yok",
+      "resolved": "Çözüldü"
+    },
     "messages": {
       "all_systems_operational": "Tüm Sistemler Çalışıyor",
       "down": "Çalışmıyor",

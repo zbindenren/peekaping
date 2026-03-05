@@ -998,6 +998,306 @@
                 }
             }
         },
+        "/incidents": {
+            "get": {
+                "security": [
+                    {
+                        "JwtAuth": []
+                    },
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Incidents"
+                ],
+                "summary": "Get incidents",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Search query",
+                        "name": "q",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "default": 1,
+                        "description": "Page number",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "default": 10,
+                        "description": "Items per page",
+                        "name": "limit",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ApiResponse-array_incident_Model"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/utils.APIError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/utils.APIError"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "security": [
+                    {
+                        "JwtAuth": []
+                    },
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Incidents"
+                ],
+                "summary": "Create incident",
+                "parameters": [
+                    {
+                        "description": "Incident object",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/incident.CreateDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ApiResponse-incident_Model"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/utils.APIError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/utils.APIError"
+                        }
+                    }
+                }
+            }
+        },
+        "/incidents/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "JwtAuth": []
+                    },
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Incidents"
+                ],
+                "summary": "Get incident by ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Incident ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ApiResponse-incident_Model"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/utils.APIError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/utils.APIError"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "JwtAuth": []
+                    },
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Incidents"
+                ],
+                "summary": "Delete incident",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Incident ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ApiResponse-any"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/utils.APIError"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "security": [
+                    {
+                        "JwtAuth": []
+                    },
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Incidents"
+                ],
+                "summary": "Update incident",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Incident ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Incident update object",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/incident.UpdateDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ApiResponse-incident_Model"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/utils.APIError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/utils.APIError"
+                        }
+                    }
+                }
+            }
+        },
+        "/incidents/{id}/resolve": {
+            "patch": {
+                "security": [
+                    {
+                        "JwtAuth": []
+                    },
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Incidents"
+                ],
+                "summary": "Resolve incident",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Incident ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ApiResponse-incident_Model"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/utils.APIError"
+                        }
+                    }
+                }
+            }
+        },
         "/maintenances": {
             "get": {
                 "security": [
@@ -3227,6 +3527,40 @@
                 }
             }
         },
+        "/status-pages/slug/{slug}/incidents": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Status Pages"
+                ],
+                "summary": "Get incidents for a status page",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Status page slug",
+                        "name": "slug",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/utils.ApiResponse-array_incident_Model"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/utils.APIError"
+                        }
+                    }
+                }
+            }
+        },
         "/status-pages/slug/{slug}/monitors": {
             "get": {
                 "produces": [
@@ -4187,6 +4521,89 @@
                 "MonitorStatusPending",
                 "MonitorStatusMaintenance"
             ]
+        },
+        "incident.CreateDto": {
+            "type": "object",
+            "required": [
+                "status_page_id",
+                "style",
+                "title"
+            ],
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "status_page_id": {
+                    "type": "string"
+                },
+                "style": {
+                    "type": "string",
+                    "enum": [
+                        "info",
+                        "warning",
+                        "danger",
+                        "primary"
+                    ]
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "incident.Model": {
+            "type": "object",
+            "properties": {
+                "active": {
+                    "type": "boolean"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "resolved_at": {
+                    "type": "string"
+                },
+                "status_page_id": {
+                    "type": "string"
+                },
+                "style": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "incident.UpdateDto": {
+            "type": "object",
+            "properties": {
+                "active": {
+                    "type": "boolean"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "style": {
+                    "type": "string",
+                    "enum": [
+                        "info",
+                        "warning",
+                        "danger",
+                        "primary"
+                    ]
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
         },
         "maintenance.CreateUpdateDto": {
             "type": "object",
@@ -5553,6 +5970,24 @@
                 }
             }
         },
+        "utils.ApiResponse-array_incident_Model": {
+            "type": "object",
+            "required": [
+                "data",
+                "message"
+            ],
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/incident.Model"
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
         "utils.ApiResponse-array_maintenance_Model": {
             "type": "object",
             "required": [
@@ -5688,6 +6123,21 @@
             "properties": {
                 "data": {
                     "$ref": "#/definitions/auth.LoginResponse"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "utils.ApiResponse-incident_Model": {
+            "type": "object",
+            "required": [
+                "data",
+                "message"
+            ],
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/incident.Model"
                 },
                 "message": {
                     "type": "string"

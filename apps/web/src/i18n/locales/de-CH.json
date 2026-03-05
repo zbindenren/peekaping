@@ -115,6 +115,39 @@
       "passwords_mismatch": "Passwörter stimmen nicht überein"
     }
   },
+  "incidents": {
+    "active": "Aktiv",
+    "confirm_delete": "Dies löscht diesen Vorfall unwiderruflich.",
+    "confirm_resolve": "Dies markiert den Vorfall als gelöst.",
+    "create": "Vorfall erstellen",
+    "created_success": "Vorfall erfolgreich erstellt",
+    "delete": "Vorfall löschen",
+    "deleted_success": "Vorfall erfolgreich gelöscht",
+    "edit": "Vorfall bearbeiten",
+    "form": {
+      "content_label": "Inhalt",
+      "content_placeholder": "Beschreiben Sie den Vorfall...",
+      "markdown_supported": "Markdown wird unterstützt",
+      "select_status_page": "Statusseite auswählen...",
+      "status_page_label": "Statusseite",
+      "status_page_required": "Statusseite ist erforderlich",
+      "style_label": "Stil",
+      "title_label": "Titel",
+      "title_placeholder": "Titel des Vorfalls",
+      "title_required": "Titel ist erforderlich"
+    },
+    "no_incidents": "Keine Vorfälle",
+    "resolve": "Lösen",
+    "resolved": "Gelöst",
+    "resolved_success": "Vorfall erfolgreich gelöst",
+    "style": {
+      "danger": "Gefahr",
+      "info": "Info",
+      "warning": "Warnung"
+    },
+    "title": "Vorfälle",
+    "updated_success": "Vorfall erfolgreich aktualisiert"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Vorfälle",
     "maintenance": "Wartung",
     "monitors": "Monitore",
     "notification_channels": "Benachrichtigungskanäle",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Aktive Vorfälle",
+      "history_title": "Vorfallhistorie",
+      "no_active": "Keine aktiven Vorfälle",
+      "no_history": "Keine Vorfallhistorie",
+      "resolved": "Gelöst"
+    },
     "messages": {
       "all_systems_operational": "Alle Systeme betriebsbereit",
       "down": "Ausfall",

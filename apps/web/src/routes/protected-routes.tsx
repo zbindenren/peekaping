@@ -17,6 +17,9 @@ import MaintenancePage from "@/app/maintenance/page";
 import NewMaintenance from "@/app/maintenance/new/page";
 import EditMaintenance from "@/app/maintenance/edit/page";
 import EditStatusPage from "@/app/status-pages/edit/page";
+import IncidentsPage from "@/app/incidents/page";
+import NewIncident from "@/app/incidents/new/page";
+import EditIncident from "@/app/incidents/edit/page";
 import TagsPage from "@/app/tags/page";
 import NewTag from "@/app/tags/new/page";
 import EditTag from "@/app/tags/edit/page";
@@ -47,6 +50,11 @@ export const protectedRoutes = [
   <Route path="/maintenances" element={<MaintenancePage />} />,
   <Route path="/maintenances/new" element={<NewMaintenance />} />,
   <Route path="/maintenances/:id/edit" element={<EditMaintenance />} />,
+
+  // Incident routes
+  <Route path="/incidents" element={<IncidentsPage />} />,
+  <Route path="/incidents/new" element={<NewIncident />} />,
+  <Route path="/incidents/:id/edit" element={<EditIncident />} />,
 
   // Settings and security
   <Route path="/settings" element={<SettingsPage />} />,

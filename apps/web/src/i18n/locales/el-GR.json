@@ -115,6 +115,39 @@
       "passwords_mismatch": "Οι κωδικοί δεν ταιριάζουν"
     }
   },
+  "incidents": {
+    "active": "Ενεργό",
+    "confirm_delete": "Αυτό θα διαγράψει οριστικά αυτό το συμβάν.",
+    "confirm_resolve": "Αυτό θα σημειώσει το συμβάν ως επιλυμένο.",
+    "create": "Δημιουργία συμβάντος",
+    "created_success": "Το συμβάν δημιουργήθηκε με επιτυχία",
+    "delete": "Διαγραφή συμβάντος",
+    "deleted_success": "Το συμβάν διαγράφηκε με επιτυχία",
+    "edit": "Επεξεργασία συμβάντος",
+    "form": {
+      "content_label": "Περιεχόμενο",
+      "content_placeholder": "Περιγράψτε το συμβάν...",
+      "markdown_supported": "Υποστηρίζεται Markdown",
+      "select_status_page": "Επιλέξτε σελίδα κατάστασης...",
+      "status_page_label": "Σελίδα κατάστασης",
+      "status_page_required": "Η σελίδα κατάστασης είναι υποχρεωτική",
+      "style_label": "Στυλ",
+      "title_label": "Τίτλος",
+      "title_placeholder": "Τίτλος συμβάντος",
+      "title_required": "Ο τίτλος είναι υποχρεωτικός"
+    },
+    "no_incidents": "Δεν υπάρχουν συμβάντα",
+    "resolve": "Επίλυση",
+    "resolved": "Επιλύθηκε",
+    "resolved_success": "Το συμβάν επιλύθηκε με επιτυχία",
+    "style": {
+      "danger": "Κίνδυνος",
+      "info": "Πληροφορία",
+      "warning": "Προειδοποίηση"
+    },
+    "title": "Συμβάντα",
+    "updated_success": "Το συμβάν ενημερώθηκε με επιτυχία"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Συμβάντα",
     "maintenance": "Συντήρηση",
     "monitors": "Παρακολουθήσεις",
     "notification_channels": "Κανάλια ειδοποιήσεων",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Ενεργά συμβάντα",
+      "history_title": "Ιστορικό συμβάντων",
+      "no_active": "Δεν υπάρχουν ενεργά συμβάντα",
+      "no_history": "Δεν υπάρχει ιστορικό συμβάντων",
+      "resolved": "Επιλύθηκε"
+    },
     "messages": {
       "all_systems_operational": "Όλα τα συστήματα σε λειτουργία",
       "down": "Κάτω",

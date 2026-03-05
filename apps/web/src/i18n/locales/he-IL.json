@@ -115,6 +115,39 @@
       "passwords_mismatch": "הסיסמאות לא תואמות"
     }
   },
+  "incidents": {
+    "active": "פעיל",
+    "confirm_delete": "פעולה זו תמחק את התקרית לצמיתות.",
+    "confirm_resolve": "פעולה זו תסמן את התקרית כפתורה.",
+    "create": "יצירת תקרית",
+    "created_success": "התקרית נוצרה בהצלחה",
+    "delete": "מחיקת תקרית",
+    "deleted_success": "התקרית נמחקה בהצלחה",
+    "edit": "עריכת תקרית",
+    "form": {
+      "content_label": "תוכן",
+      "content_placeholder": "תאר את התקרית...",
+      "markdown_supported": "Markdown נתמך",
+      "select_status_page": "בחר דף סטטוס...",
+      "status_page_label": "דף סטטוס",
+      "status_page_required": "דף סטטוס נדרש",
+      "style_label": "סגנון",
+      "title_label": "כותרת",
+      "title_placeholder": "כותרת התקרית",
+      "title_required": "כותרת נדרשת"
+    },
+    "no_incidents": "אין תקריות",
+    "resolve": "פתור",
+    "resolved": "נפתרה",
+    "resolved_success": "התקרית נפתרה בהצלחה",
+    "style": {
+      "danger": "סכנה",
+      "info": "מידע",
+      "warning": "אזהרה"
+    },
+    "title": "תקריות",
+    "updated_success": "התקרית עודכנה בהצלחה"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "תקריות",
     "maintenance": "תחזוקה",
     "monitors": "מעקבים",
     "notification_channels": "ערוצי התראות",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "תקריות פעילות",
+      "history_title": "היסטוריית תקריות",
+      "no_active": "אין תקריות פעילות",
+      "no_history": "אין היסטוריית תקריות",
+      "resolved": "נפתרה"
+    },
     "messages": {
       "all_systems_operational": "כל המערכות פועלות",
       "down": "נפסק",

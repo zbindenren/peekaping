@@ -115,6 +115,39 @@
       "passwords_mismatch": "Les mots de passe ne correspondent pas"
     }
   },
+  "incidents": {
+    "active": "Actif",
+    "confirm_delete": "Cela supprimera définitivement cet incident.",
+    "confirm_resolve": "Cela marquera l'incident comme résolu.",
+    "create": "Créer un incident",
+    "created_success": "Incident créé avec succès",
+    "delete": "Supprimer l'incident",
+    "deleted_success": "Incident supprimé avec succès",
+    "edit": "Modifier l'incident",
+    "form": {
+      "content_label": "Contenu",
+      "content_placeholder": "Décrivez l'incident...",
+      "markdown_supported": "Markdown est pris en charge",
+      "select_status_page": "Sélectionnez une page d'état...",
+      "status_page_label": "Page d'état",
+      "status_page_required": "La page d'état est obligatoire",
+      "style_label": "Style",
+      "title_label": "Titre",
+      "title_placeholder": "Titre de l'incident",
+      "title_required": "Le titre est obligatoire"
+    },
+    "no_incidents": "Aucun incident",
+    "resolve": "Résoudre",
+    "resolved": "Résolu",
+    "resolved_success": "Incident résolu avec succès",
+    "style": {
+      "danger": "Danger",
+      "info": "Info",
+      "warning": "Avertissement"
+    },
+    "title": "Incidents",
+    "updated_success": "Incident mis à jour avec succès"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Incidents",
     "maintenance": "Maintenance",
     "monitors": "Moniteurs",
     "notification_channels": "Canaux de notification",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Incidents actifs",
+      "history_title": "Historique des incidents",
+      "no_active": "Aucun incident actif",
+      "no_history": "Aucun historique d'incidents",
+      "resolved": "Résolu"
+    },
     "messages": {
       "all_systems_operational": "Tous les systèmes fonctionnent",
       "down": "Indisponible",

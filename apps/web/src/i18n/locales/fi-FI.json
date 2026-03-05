@@ -115,6 +115,39 @@
       "passwords_mismatch": "Salasanat eivät täsmää"
     }
   },
+  "incidents": {
+    "active": "Aktiivinen",
+    "confirm_delete": "Tämä poistaa tämän häiriön pysyvästi.",
+    "confirm_resolve": "Tämä merkitsee häiriön ratkaistuksi.",
+    "create": "Luo häiriö",
+    "created_success": "Häiriö luotu onnistuneesti",
+    "delete": "Poista häiriö",
+    "deleted_success": "Häiriö poistettu onnistuneesti",
+    "edit": "Muokkaa häiriötä",
+    "form": {
+      "content_label": "Sisältö",
+      "content_placeholder": "Kuvaile häiriö...",
+      "markdown_supported": "Markdown tuettu",
+      "select_status_page": "Valitse tilasivu...",
+      "status_page_label": "Tilasivu",
+      "status_page_required": "Tilasivu on pakollinen",
+      "style_label": "Tyyli",
+      "title_label": "Otsikko",
+      "title_placeholder": "Häiriön otsikko",
+      "title_required": "Otsikko on pakollinen"
+    },
+    "no_incidents": "Ei häiriöitä",
+    "resolve": "Ratkaise",
+    "resolved": "Ratkaistu",
+    "resolved_success": "Häiriö ratkaistu onnistuneesti",
+    "style": {
+      "danger": "Vaara",
+      "info": "Tiedote",
+      "warning": "Varoitus"
+    },
+    "title": "Häiriöt",
+    "updated_success": "Häiriö päivitetty onnistuneesti"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Häiriöt",
     "maintenance": "Huolto",
     "monitors": "Valvonta",
     "notification_channels": "Ilmoituskanavat",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Aktiiviset häiriöt",
+      "history_title": "Häiriöhistoria",
+      "no_active": "Ei aktiivisia häiriöitä",
+      "no_history": "Ei häiriöhistoriaa",
+      "resolved": "Ratkaistu"
+    },
     "messages": {
       "all_systems_operational": "Kaikki järjestelmät toiminnassa",
       "down": "Poissa",

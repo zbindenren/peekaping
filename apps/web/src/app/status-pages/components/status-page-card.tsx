@@ -22,7 +22,10 @@ import { type StatusPageModel } from "@/api";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
   deleteStatusPagesByIdMutation,
+  getIncidentsInfiniteQueryKey,
+  getIncidentsQueryKey,
   getStatusPagesInfiniteQueryKey,
+  getStatusPagesQueryKey,
 } from "@/api/@tanstack/react-query.gen";
 import { toast } from "sonner";
 import { useState } from "react";
@@ -47,6 +50,15 @@ const StatusPageCard = ({ statusPage, onClick }: StatusPageCardProps) => {
       toast.success(t("status_pages.messages.deleted_successfully"));
       queryClient.invalidateQueries({
         queryKey: getStatusPagesInfiniteQueryKey(),
+      });
+      queryClient.invalidateQueries({
+        queryKey: getStatusPagesQueryKey(),
+      });
+      queryClient.invalidateQueries({
+        queryKey: getIncidentsQueryKey(),
+      });
+      queryClient.invalidateQueries({
+        queryKey: getIncidentsInfiniteQueryKey(),
       });
       setIsDeleteDialogOpen(false);
     },

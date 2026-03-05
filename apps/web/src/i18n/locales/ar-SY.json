@@ -115,6 +115,39 @@
       "passwords_mismatch": "كلمات المرور غير متطابقة"
     }
   },
+  "incidents": {
+    "active": "نشط",
+    "confirm_delete": "سيتم حذف هذه الحادثة نهائياً.",
+    "confirm_resolve": "سيتم تحديد هذه الحادثة كمحلولة.",
+    "create": "إنشاء حادثة",
+    "created_success": "تم إنشاء الحادثة بنجاح",
+    "delete": "حذف الحادثة",
+    "deleted_success": "تم حذف الحادثة بنجاح",
+    "edit": "تعديل الحادثة",
+    "form": {
+      "content_label": "المحتوى",
+      "content_placeholder": "وصف الحادثة...",
+      "markdown_supported": "Markdown مدعوم",
+      "select_status_page": "اختر صفحة حالة...",
+      "status_page_label": "صفحة الحالة",
+      "status_page_required": "صفحة الحالة مطلوبة",
+      "style_label": "النمط",
+      "title_label": "العنوان",
+      "title_placeholder": "عنوان الحادثة",
+      "title_required": "العنوان مطلوب"
+    },
+    "no_incidents": "لا توجد حوادث",
+    "resolve": "حل",
+    "resolved": "محلولة",
+    "resolved_success": "تم حل الحادثة بنجاح",
+    "style": {
+      "danger": "خطر",
+      "info": "معلومات",
+      "warning": "تحذير"
+    },
+    "title": "الحوادث",
+    "updated_success": "تم تحديث الحادثة بنجاح"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "الحوادث",
     "maintenance": "الصيانة",
     "monitors": "المراقبون",
     "notification_channels": "قنوات الإشعارات",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "الحوادث النشطة",
+      "history_title": "سجل الحوادث",
+      "no_active": "لا توجد حوادث نشطة",
+      "no_history": "لا يوجد سجل حوادث",
+      "resolved": "محلولة"
+    },
     "messages": {
       "all_systems_operational": "جميع الأنظمة قيد التشغيل",
       "down": "خارج الخدمة",

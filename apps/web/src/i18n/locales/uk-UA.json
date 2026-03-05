@@ -115,6 +115,39 @@
       "passwords_mismatch": "Паролі не співпадають"
     }
   },
+  "incidents": {
+    "active": "Активний",
+    "confirm_delete": "Це назавжди видалить цей інцидент.",
+    "confirm_resolve": "Це позначить інцидент як вирішений.",
+    "create": "Створити інцидент",
+    "created_success": "Інцидент успішно створено",
+    "delete": "Видалити інцидент",
+    "deleted_success": "Інцидент успішно видалено",
+    "edit": "Редагувати інцидент",
+    "form": {
+      "content_label": "Зміст",
+      "content_placeholder": "Опишіть інцидент...",
+      "markdown_supported": "Markdown підтримується",
+      "select_status_page": "Оберіть сторінку стану...",
+      "status_page_label": "Сторінка стану",
+      "status_page_required": "Сторінка стану є обов'язковою",
+      "style_label": "Стиль",
+      "title_label": "Заголовок",
+      "title_placeholder": "Заголовок інциденту",
+      "title_required": "Заголовок є обов'язковим"
+    },
+    "no_incidents": "Немає інцидентів",
+    "resolve": "Вирішити",
+    "resolved": "Вирішено",
+    "resolved_success": "Інцидент успішно вирішено",
+    "style": {
+      "danger": "Небезпека",
+      "info": "Інформація",
+      "warning": "Попередження"
+    },
+    "title": "Інциденти",
+    "updated_success": "Інцидент успішно оновлено"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Інциденти",
     "maintenance": "Технічне обслуговування",
     "monitors": "Моніторинг",
     "notification_channels": "Канали сповіщень",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Активні інциденти",
+      "history_title": "Історія інцидентів",
+      "no_active": "Немає активних інцидентів",
+      "no_history": "Немає історії інцидентів",
+      "resolved": "Вирішено"
+    },
     "messages": {
       "all_systems_operational": "Всі системи працюють",
       "down": "Не працює",

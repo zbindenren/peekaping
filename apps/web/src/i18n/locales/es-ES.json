@@ -115,6 +115,39 @@
       "passwords_mismatch": "Las contraseñas no coinciden"
     }
   },
+  "incidents": {
+    "active": "Activo",
+    "confirm_delete": "Esto eliminará permanentemente este incidente.",
+    "confirm_resolve": "Esto marcará el incidente como resuelto.",
+    "create": "Crear incidente",
+    "created_success": "Incidente creado con éxito",
+    "delete": "Eliminar incidente",
+    "deleted_success": "Incidente eliminado con éxito",
+    "edit": "Editar incidente",
+    "form": {
+      "content_label": "Contenido",
+      "content_placeholder": "Describa el incidente...",
+      "markdown_supported": "Se admite Markdown",
+      "select_status_page": "Seleccione una página de estado...",
+      "status_page_label": "Página de estado",
+      "status_page_required": "La página de estado es obligatoria",
+      "style_label": "Estilo",
+      "title_label": "Título",
+      "title_placeholder": "Título del incidente",
+      "title_required": "El título es obligatorio"
+    },
+    "no_incidents": "Sin incidentes",
+    "resolve": "Resolver",
+    "resolved": "Resuelto",
+    "resolved_success": "Incidente resuelto con éxito",
+    "style": {
+      "danger": "Peligro",
+      "info": "Información",
+      "warning": "Advertencia"
+    },
+    "title": "Incidentes",
+    "updated_success": "Incidente actualizado con éxito"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Incidentes",
     "maintenance": "Mantenimiento",
     "monitors": "Monitores",
     "notification_channels": "Canales de notificación",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Incidentes activos",
+      "history_title": "Historial de incidentes",
+      "no_active": "Sin incidentes activos",
+      "no_history": "Sin historial de incidentes",
+      "resolved": "Resuelto"
+    },
     "messages": {
       "all_systems_operational": "Todos los sistemas en funcionamiento",
       "down": "Caído",

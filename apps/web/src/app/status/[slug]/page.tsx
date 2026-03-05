@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import {
   getStatusPagesSlugBySlugOptions,
   getStatusPagesSlugBySlugMonitorsOptions,
+  getStatusPagesSlugBySlugIncidentsOptions,
 } from "@/api/@tanstack/react-query.gen";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -23,6 +24,8 @@ import BarHistory from "@/components/bars";
 import { last } from "@/lib/utils";
 import { ThemeToggle } from "../../../components/theme-toggle";
 import { useLocalizedTranslation } from "@/hooks/useTranslation";
+import IncidentBanner from "./components/incident-banner";
+import IncidentHistory from "./components/incident-history";
 
 const PublicStatusPage = ({ incomingSlug }: { incomingSlug?: string }) => {
   const params = useParams<{ slug: string }>();
@@ -76,6 +79,23 @@ const PublicStatusPage = ({ incomingSlug }: { incomingSlug?: string }) => {
 
   const monitors = monitorsData?.data || [];
 
+  // Fetch incidents for the status page
+  const {
+    data: incidentsData,
+    refetch: refetchIncidents,
+  } = useQuery({
+    ...getStatusPagesSlugBySlugIncidentsOptions({
+      path: {
+        slug: slug!,
+      },
+    }),
+    enabled: !!slug && !!statusPage,
+  });
+
+  const allIncidents = incidentsData?.data || [];
+  const activeIncidents = allIncidents.filter((i) => i.active);
+  const resolvedIncidents = allIncidents.filter((i) => !i.active);
+
   // Auto-refresh logic
   useEffect(() => {
     if (!slug || !statusPage) return;
@@ -86,6 +106,7 @@ const PublicStatusPage = ({ incomingSlug }: { incomingSlug?: string }) => {
           // Time to refresh
           refetchStatusPage();
           refetchMonitors();
+          refetchIncidents();
           setLastUpdated(new Date());
           return refreshInterval;
         }
@@ -94,7 +115,7 @@ const PublicStatusPage = ({ incomingSlug }: { incomingSlug?: string }) => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [slug, statusPage, refreshInterval, refetchStatusPage, refetchMonitors]);
+  }, [slug, statusPage, refreshInterval, refetchStatusPage, refetchMonitors, refetchIncidents]);
 
   // Format countdown as MM:SS
   const formatCountdown = (seconds: number) => {
@@ -261,6 +282,15 @@ const PublicStatusPage = ({ incomingSlug }: { incomingSlug?: string }) => {
             <span className="text-lg font-semibold">{overallStatus.text}</span>
           </div>
 
+          {/* Active Incidents */}
+          {activeIncidents.length > 0 && (
+            <div className="space-y-3 mb-6">
+              {activeIncidents.map((incident) => (
+                <IncidentBanner key={incident.id} incident={incident} />
+              ))}
+            </div>
+          )}
+
           {/* Monitors */}
           <div className="space-y-4">
             {monitorsLoading && (
@@ -348,6 +378,9 @@ const PublicStatusPage = ({ incomingSlug }: { incomingSlug?: string }) => {
               )}
           </div>
 
+          {/* Incident History */}
+          <IncidentHistory incidents={resolvedIncidents} />
+
           {statusPage.footer_text && (
             <div className="mt-8 pt-8 border-t text-center">
               <p className="text-sm text-muted-foreground">
@@ -372,6 +405,7 @@ const PublicStatusPage = ({ incomingSlug }: { incomingSlug?: string }) => {
               onClick={() => {
                 refetchStatusPage();
                 refetchMonitors();
+                refetchIncidents();
                 setLastUpdated(new Date());
                 setCountdown(refreshInterval);
               }}

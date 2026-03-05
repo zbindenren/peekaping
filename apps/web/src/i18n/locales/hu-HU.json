@@ -115,6 +115,39 @@
       "passwords_mismatch": "A jelszavak nem egyeznek"
     }
   },
+  "incidents": {
+    "active": "Aktív",
+    "confirm_delete": "Ez véglegesen törli ezt az incidenst.",
+    "confirm_resolve": "Ez megoldottként jelöli az incidenst.",
+    "create": "Incidens létrehozása",
+    "created_success": "Incidens sikeresen létrehozva",
+    "delete": "Incidens törlése",
+    "deleted_success": "Incidens sikeresen törölve",
+    "edit": "Incidens szerkesztése",
+    "form": {
+      "content_label": "Tartalom",
+      "content_placeholder": "Írja le az incidenst...",
+      "markdown_supported": "Markdown támogatott",
+      "select_status_page": "Válasszon állapotoldalt...",
+      "status_page_label": "Állapotoldal",
+      "status_page_required": "Az állapotoldal kötelező",
+      "style_label": "Stílus",
+      "title_label": "Cím",
+      "title_placeholder": "Incidens címe",
+      "title_required": "A cím kötelező"
+    },
+    "no_incidents": "Nincsenek incidensek",
+    "resolve": "Megoldás",
+    "resolved": "Megoldva",
+    "resolved_success": "Incidens sikeresen megoldva",
+    "style": {
+      "danger": "Veszély",
+      "info": "Információ",
+      "warning": "Figyelmeztetés"
+    },
+    "title": "Incidensek",
+    "updated_success": "Incidens sikeresen frissítve"
+  },
   "maintenance": {
     "card": {
       "aria": {
@@ -633,6 +666,7 @@
     }
   },
   "navigation": {
+    "incidents": "Incidensek",
     "maintenance": "Karbantartás",
     "monitors": "Figyelők",
     "notification_channels": "Értesítési csatornák",
@@ -1231,6 +1265,13 @@
     }
   },
   "status": {
+    "incidents": {
+      "active_title": "Aktív incidensek",
+      "history_title": "Incidens előzmények",
+      "no_active": "Nincsenek aktív incidensek",
+      "no_history": "Nincs incidens előzmény",
+      "resolved": "Megoldva"
+    },
     "messages": {
       "all_systems_operational": "Minden rendszer működik",
       "down": "Nem elérhető",
