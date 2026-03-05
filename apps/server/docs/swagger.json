@@ -4541,8 +4541,7 @@
                     "enum": [
                         "info",
                         "warning",
-                        "danger",
-                        "primary"
+                        "danger"
                     ]
                 },
                 "title": {
@@ -4596,8 +4595,7 @@
                     "enum": [
                         "info",
                         "warning",
-                        "danger",
-                        "primary"
+                        "danger"
                     ]
                 },
                 "title": {

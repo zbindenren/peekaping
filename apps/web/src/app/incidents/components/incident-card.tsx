@@ -68,6 +68,7 @@ const IncidentCard = ({
   return (
     <Card
       className="mb-2 p-2 hover:cursor-pointer light:hover:bg-gray-100 dark:hover:bg-zinc-800"
+      role="button"
       onClick={onClick}
     >
       <CardContent className="px-2">
@@ -132,6 +133,7 @@ const IncidentCard = ({
               onClick={handleDeleteClick}
               className="text-red-500 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-950"
               aria-label={t("incidents.delete")}
+              disabled={isPending}
             >
               <Trash className="h-4 w-4" />
             </Button>

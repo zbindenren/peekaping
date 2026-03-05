@@ -76,16 +76,6 @@ func (r *MongoRepositoryImpl) Create(ctx context.Context, entity *CreateDto) (*M
 		return nil, fmt.Errorf("invalid status page ID: %w", err)
 	}
 
-	// check that the status page exists
-	var sp bson.M
-	err = r.db.Collection("status_pages").FindOne(ctx, bson.M{"_id": statusPageOID}).Decode(&sp)
-	if err != nil {
-		if err == mongo.ErrNoDocuments {
-			return nil, mongo.ErrNoDocuments
-		}
-		return nil, err
-	}
-
 	mm := &mongoModel{
 		ID:           primitive.NewObjectID(),
 		StatusPageID: statusPageOID,

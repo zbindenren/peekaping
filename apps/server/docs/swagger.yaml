@@ -256,7 +256,6 @@ definitions:
         - info
         - warning
         - danger
-        - primary
         type: string
       title:
         type: string
@@ -297,7 +296,6 @@ definitions:
         - info
         - warning
         - danger
-        - primary
         type: string
       title:
         type: string

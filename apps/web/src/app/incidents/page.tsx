@@ -233,24 +233,31 @@ export default function IncidentsPage() {
           />
         )}
 
-        {deleteId && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-            <div className="bg-background p-6 rounded-lg shadow-lg max-w-md w-full border">
-              <h2 className="text-xl font-bold mb-4">
+        <AlertDialog
+          open={!!deleteId}
+          onOpenChange={(open) => {
+            if (!open) handleCancelDelete();
+          }}
+        >
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>
                 {t("common.confirm_delete_title_short")}
-              </h2>
-              <p className="mb-6">{t("incidents.confirm_delete")}</p>
-              <div className="flex justify-end gap-4">
-                <Button variant="outline" onClick={handleCancelDelete}>
-                  {t("common.cancel")}
-                </Button>
-                <Button variant="destructive" onClick={handleConfirmDelete}>
-                  {t("common.delete")}
-                </Button>
-              </div>
-            </div>
-          </div>
-        )}
+              </AlertDialogTitle>
+              <AlertDialogDescription>
+                {t("incidents.confirm_delete")}
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel onClick={(e) => e.stopPropagation()}>
+                {t("common.cancel")}
+              </AlertDialogCancel>
+              <AlertDialogAction onClick={handleConfirmDelete}>
+                {t("common.delete")}
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
 
         {showResolveDialog && (
           <AlertDialog

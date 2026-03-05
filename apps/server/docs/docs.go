@@ -4550,8 +4550,7 @@ const docTemplate = `{
                     "enum": [
                         "info",
                         "warning",
-                        "danger",
-                        "primary"
+                        "danger"
                     ]
                 },
                 "title": {
@@ -4605,8 +4604,7 @@ const docTemplate = `{
                     "enum": [
                         "info",
                         "warning",
-                        "danger",
-                        "primary"
+                        "danger"
                     ]
                 },
                 "title": {

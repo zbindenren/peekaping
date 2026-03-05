@@ -142,7 +142,7 @@ export type HeartbeatMonitorStatus = 0 | 1 | 2 | 3;
 export type IncidentCreateDto = {
   content?: string;
   status_page_id: string;
-  style: 'info' | 'warning' | 'danger' | 'primary';
+  style: 'info' | 'warning' | 'danger';
   title: string;
 };
 
@@ -161,7 +161,7 @@ export type IncidentModel = {
 export type IncidentUpdateDto = {
   active?: boolean;
   content?: string;
-  style?: 'info' | 'warning' | 'danger' | 'primary';
+  style?: 'info' | 'warning' | 'danger';
   title?: string;
 };
 
